@@ -39,23 +39,27 @@ let aso2= "";
 let dif = "";
 let ale =true;
 let ale2= false;
+let ano = true;
 let init = 1 ;
 let awz  =""
 let play2z = ""
 const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
    async function person2()
-   {   
+   {   do { console.log(ano + "value ano")
     let ale =true;
+    ;//odd
+   
     if(init % 2 !== 0)
       {
-   awz = await getInput("player 1: ");//odd
+        awz = await getInput("player 1: ")
 
       }
   else{
-    play2z = await getInput('player 2: ')//even // make this a function may be idk really
+   //even // make this a function may be idk really
 
   
   }
+
   console.log("value init" + init);
    // async function ss()
     // {
@@ -67,8 +71,7 @@ const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
 
    //  }
  
-  let aw = awz;
-  let play2 = play2z;
+
            //saq = await getInput('player 2: ')
     
 
@@ -81,12 +84,15 @@ const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
 
 
 
+async function player2000()
+{
+play2z= await getInput('player 2: ')
+//ended here
 
+}
+let assz = play2z;
 
-
-
-    
-    switch(aw || play2)
+    switch(awz|| assz )
     {
     case "1":
     
@@ -96,13 +102,14 @@ const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
  
 //})
 
-console.log(dif + " are you deaf ma men");
+
 //odd even number wait this is fun
 //function checkNull()
 //{
 
 //}
 //checkNull()
+
 function prinTable()
 {
  
@@ -124,13 +131,12 @@ if(array[0][0] !== " ")
    
     console.log(" Occupied slot . Try again")
     console.log(init+ " value if this the heck")
+   
     
-    person2();
+   
+break;
 
-
-    aw = "";
-    play2 ="";
-   return;
+    
   }
   else{
     if(init % 2 == 0  )
@@ -139,9 +145,9 @@ if(array[0][0] !== " ")
         array[0][0] ="O"
        
         init++;
-        prinTable()
-        person2()
-      
+       
+        player2000();
+      break;
         console.log("sssssssssssssssssssssssssssssssssssssssssssss")
         aw= ""
         play2= ""
@@ -152,9 +158,9 @@ if(array[0][0] !== " ")
     array[0][0] ="X"
     prinTable()
     init++
-    ale = false;
-
-    person2()
+   
+    
+    player2000()
     break;
         aw =""
     play2 = ""
@@ -422,7 +428,7 @@ if(array[0][0] !== " ")
        
 
     }
-   
+  }while(ano === true)    
   
   }
 
@@ -441,6 +447,8 @@ if(array[0][0] !== " ")
 
 
 
+  person2(); 
+
    
-person2(); 
-console.log("know what the fuck ")
+
+
