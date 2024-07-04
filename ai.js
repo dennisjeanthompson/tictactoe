@@ -22,6 +22,8 @@ async function restart() {
         playGame();
     } else {
         console.log("Goodbye!");
+        //we are dead nananann nananan
+        //we are dead mananna naanana what the fucking hell living in this world come on
         rl.close();
     }
 }
