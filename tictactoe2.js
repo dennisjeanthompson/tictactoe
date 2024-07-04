@@ -22,6 +22,8 @@ let as = "";
 let player1s = "";
 let player2s = "";
 let askAgain = "";
+let restartBot = false;
+let pickyNemesis = "";
 //let player2s= "";
 const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
 
@@ -42,18 +44,282 @@ const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
    let init = 1;
    let init1 = 1;
 
-
+   async function pickEnemy()
+   {
+   console.log("PLAY WITH BOT(bot) OR HUMAN(hum)?");
+    pickyNemesis = await getInput();
+   if(pickyNemesis=== "bot")
+   {
+      restartBot = true; 
+      platButton();
+   }
+   else{
+    platButton();
+   }
+   
+   }
 
 let flat = "Do you want to CONTINUE playing ? (Y/N)"
 
-
-
+function  botPlayer()
+{
+    // I am trying to make an AI player here like bruh using a random math 
+    let botNum =  Math.floor(Math.random()*9)+1
+  
+console.log(botNum);
+init++;
    
+             switch(botNum)
+             {
+             case "1":
+        
+   
+         if(array[0][0] !== " ")
+           {
+            
+            
+             botPlayer();
+            
+         break;
+         
+             
+         
+             }
+      else {
+          array[0][0] = "O";
+        
+          if( winnerChecker2() )
+              {
+                  restart()
+                  break;
+              }
+      else
+      {
+          prinTable();
+                  
+          player1();
+          break;
+      }
+      
+            
+               
+             
+         
+      }
+      
+      case "2":
+          if(array[0][1] !== " ")
+              {
+               
+                
+                botPlayer();
+               
+            break;
+            
+                
+            
+                }
+         else {
+          
+             array[0][1] = "O";
+             if( winnerChecker2() )
+              {
+                  restart()
+                  break;
+              }
+      else
+      {
+          prinTable();
+                  
+          player1();
+          break;
+      }
+      
+         }
+      case "3":
+          if(array[0][2] !== " ")
+              {
+                botPlayer();
+                break;
+              }
+      else{ array[0][2] = "O";
+          if( winnerChecker2() )
+              {
+                  restart()
+                  break;
+              }
+      else
+      {
+          prinTable();
+                  
+          player1();
+          break;
+      }
+      
+      
+      }
+      
+      case "4":
+          if(array[1][0] !== " ")
+              {
+                botPlayer();
+                break;
+              }
+              else{ array[1][0] = "O";
+                  if( winnerChecker2() )
+                      {
+                          restart()
+                          break;
+                      }
+              else
+              {
+                  prinTable();
+                          
+                  player1();
+                  break;
+              }
+              
+              
+              }
+      case "5":
+      
+      if(array[1][1] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[1][1] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+      
+         
+      
+          }
+ 
+      case "6":
+      
+      if(array[1][2] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[1][2] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+         
+      
+          }
+      
+      case "7":
+      
+      if(array[2][0] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[2][0] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+         
+      
+          }
+      case "8":
+      
+      if(array[2][1] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[2][1] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+         
+      
+          }
+      case "9":
+      
+      if(array[2][2] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[2][2] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+         
+      
+          }
+      
+}
+
+}
+
 
    
   async function  restart()
 
   {
+    restartBot = false;
    init = 1;
    init1 = 1;
     for(let i = 0; i<array.length;i++)
@@ -73,7 +339,8 @@ let flat = "Do you want to CONTINUE playing ? (Y/N)"
  console.log("what you entered are some abc");
  if(askAgain=="y")
     {
-        player1();
+       pickEnemy();
+       player1();
         return;
     
     }
@@ -103,11 +370,21 @@ let flat = "Do you want to CONTINUE playing ? (Y/N)"
        array[0][0]=== "O" &&array[1][1]==="O"&&array[2][2]==="O"||array[0][2]=== "O"&&array[1][1]==="O"&&  array[2][0]==="O"
    )
        {
-           console.log("=====================================")
-console.log("Player TWO IS THE WINNER!!!")
-console.log("=====================================")
-
-return true;
+        if(restartBot === true){
+            console.log("=====================================")
+            console.log("THE A.I. IS THE WINNER!!!")
+            console.log("=====================================")
+            return true;
+        }
+        else
+        {
+            console.log("=====================================")
+            console.log("Player TWO IS THE WINNER!!!")
+            console.log("=====================================")
+            
+            return true;
+        }
+    
        }
   }
 
@@ -198,8 +475,18 @@ else
     prinTable();
  
     console.log("VALUE OF INTIT1 "  + init1);
-    player2();
-    break;
+    if(botPlayer === true)
+        {
+botPlayer()
+break;           
+        }
+        else
+        {
+            player2();
+            break;
+        }
+    
+    
 }
 
       
@@ -233,9 +520,16 @@ case "2":
 else
 {
     prinTable();
-            
-    player2();
-    break;
+    if(botPlayer === true)
+        {
+botPlayer()
+break;           
+        }
+        else
+        {
+            player2();
+            break;
+        }
 }
 
    }
@@ -258,8 +552,16 @@ else
 {
     prinTable();
             
-    player2();
-    break;
+    if(botPlayer === true)
+        {
+botPlayer()
+break;           
+        }
+        else
+        {
+            player2();
+            break;
+        }
 }
 
 
@@ -284,8 +586,16 @@ case "4":
         {
             prinTable();
                     
-            player2();
-            break;
+            if(botPlayer === true)
+                {
+        botPlayer()
+        break;           
+                }
+                else
+                {
+                    player2();
+                    break;
+                }
         }
         
         
@@ -310,8 +620,16 @@ if(array[1][1] !== " ")
     {
         prinTable();
                 
-        player2();
-        break;
+        if(botPlayer === true)
+            {
+    botPlayer()
+    break;           
+            }
+            else
+            {
+                player2();
+                break;
+            }
     }
 
 
@@ -345,8 +663,16 @@ if(array[1][2] !== " ")
     {
         prinTable();
                 
-        player2();
-        break;
+        if(botPlayer === true)
+            {
+    botPlayer()
+    break;           
+            }
+            else
+            {
+                player2();
+                break;
+            }
     }
 
 
@@ -374,8 +700,16 @@ if(array[2][0] !== " ")
     {
         prinTable();
                 
-        player2();
-        break;
+        if(botPlayer === true)
+            {
+    botPlayer()
+    break;           
+            }
+            else
+            {
+                player2();
+                break;
+            }
     }
 
 
@@ -402,8 +736,16 @@ if(array[2][1] !== " ")
     {
         prinTable();
                 
-        player2();
-        break;
+        if(botPlayer === true)
+            {
+    botPlayer()
+    break;           
+            }
+            else
+            {
+                player2();
+                break;
+            }
     }
 
 
@@ -430,8 +772,16 @@ if(array[2][2] !== " ")
     {
         prinTable();
                 
-        player2();
-        break;
+        if(botPlayer === true)
+            {
+    botPlayer()
+    break;           
+            }
+            else
+            {
+                player2();
+                break;
+            }
     }
 
 
@@ -736,13 +1086,43 @@ async function player2()
 }
 // the fucking lie in this world should not end like this man what the hell
 
-
+pickEnemy()
 if(init % 2 !== 0)
     {
         player1();
     }
     else
     {
-        player2();
+        if(restartBot===true)
+            {
+            botPlayer();
+            }
+            else{
+                player2();
+            }   
+     
     }
+
+function platButton()
+{
+    if(init % 2 !== 0)
+        {
+            player1();
+        }
+        else
+        {
+            if(restartBot===true)
+                {
+                botPlayer();
+                }
+                else{
+                    player2();
+                }   
+         
+        }
+    
+
+    
+}
+    
 
