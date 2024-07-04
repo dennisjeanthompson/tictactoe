@@ -26,6 +26,7 @@ let restartBot = false;
 let pickyNemesis = ""; 
 let listz =false;
 let botNum = 0;
+let stringAz="";
 //let player2s= "";
 const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
 
@@ -34,261 +35,6 @@ const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
 
      
 let flat = "Do you want to CONTINUE playing ? (Y/N)"
-
-function  botPlayer()
-{
-    console.log("what the heck")
-  
-    // I am trying to make an AI player here like bruh using a random math 
-     botNum =  Math.floor(Math.random()*9)+1;
-     console.log(botNum);
-console.log(botNum);
-init++;
-   
-             switch(botNum)
-             {
-             case "1":
-        
-   
-         if(array[0][0] !== " ")
-           {
-            
-            
-             botPlayer();
-            
-         break;
-         
-             
-         
-             }
-      else {
-          array[0][0] = "O";
-        
-          if( winnerChecker2() )
-              {
-                  restart()
-                  break;
-              }
-      else
-      {
-          prinTable();
-                  
-          player1();
-          break;
-      }
-      
-            
-               
-             
-         
-      }
-      
-      case "2":
-          if(array[0][1] !== " ")
-              {
-               
-                
-                botPlayer();
-               
-            break;
-            
-                
-            
-                }
-         else {
-          
-             array[0][1] = "O";
-             if( winnerChecker2() )
-              {
-                  restart()
-                  break;
-              }
-      else
-      {
-          prinTable();
-                  
-          player1();
-          break;
-      }
-      
-         }
-      case "3":
-          if(array[0][2] !== " ")
-              {
-                botPlayer();
-                break;
-              }
-      else{ array[0][2] = "O";
-          if( winnerChecker2() )
-              {
-                  restart()
-                  break;
-              }
-      else
-      {
-          prinTable();
-                  
-          player1();
-          break;
-      }
-      
-      
-      }
-      
-      case "4":
-          if(array[1][0] !== " ")
-              {
-                botPlayer();
-                break;
-              }
-              else{ array[1][0] = "O";
-                  if( winnerChecker2() )
-                      {
-                          restart()
-                          break;
-                      }
-              else
-              {
-                  prinTable();
-                          
-                  player1();
-                  break;
-              }
-              
-              
-              }
-      case "5":
-      
-      if(array[1][1] !== " ")
-          {
-            botPlayer();
-            break;
-          }
-          else{ array[1][1] = "O";
-              if( winnerChecker2() )
-                  {
-                      restart()
-                      break;
-                  }
-          else
-          {
-              prinTable();
-                      
-              player1();
-              break;
-          }
-      
-      
-      
-         
-      
-          }
- 
-      case "6":
-      
-      if(array[1][2] !== " ")
-          {
-            botPlayer();
-            break;
-          }
-          else{ array[1][2] = "O";
-              if( winnerChecker2() )
-                  {
-                      restart()
-                      break;
-                  }
-          else
-          {
-              prinTable();
-                      
-              player1();
-              break;
-          }
-      
-      
-         
-      
-          }
-      
-      case "7":
-      
-      if(array[2][0] !== " ")
-          {
-            botPlayer();
-            break;
-          }
-          else{ array[2][0] = "O";
-              if( winnerChecker2() )
-                  {
-                      restart()
-                      break;
-                  }
-          else
-          {
-              prinTable();
-                      
-              player1();
-              break;
-          }
-      
-      
-         
-      
-          }
-      case "8":
-      
-      if(array[2][1] !== " ")
-          {
-            botPlayer();
-            break;
-          }
-          else{ array[2][1] = "O";
-              if( winnerChecker2() )
-                  {
-                      restart()
-                      break;
-                  }
-          else
-          {
-              prinTable();
-                      
-              player1();
-              break;
-          }
-      
-      
-         
-      
-          }
-      case "9":
-      
-      if(array[2][2] !== " ")
-          {
-            botPlayer();
-            break;
-          }
-          else{ array[2][2] = "O";
-              if( winnerChecker2() )
-                  {
-                      restart()
-                      break;
-                  }
-          else
-          {
-              prinTable();
-                      
-              player1();
-              break;
-          }
-      
-      
-         
-      
-          }
-      
-}
-
-}
 
 
    
@@ -1048,6 +794,271 @@ async function player2()
 
 
 
+function  botPlayer()
+{
+    console.log("what the heck")
+  
+    // I am trying to make an AI player here like bruh using a random math 
+     botNum =  Math.floor(Math.random()*9)+1;
+     let sas=  botNum.toString();
+     
+     console.log(botNum); console.log(typeof sas);
+     console.log(sas);
+console.log(sas + " <---");
+if(sas === "1"||sas === "0" || botNum ===  0 ||botNum === 1  )
+    {
+        console.log("what the freaking gawk");
+
+    }
+    init++;
+             switch(sas)
+             {
+             case "1":
+        
+   
+         if(array[0][0] !== " ")
+           {
+            
+            
+             botPlayer();
+            
+         break;
+         
+             
+         
+             }
+      else {
+          array[0][0] = "O";
+        
+          if( winnerChecker2() )
+              {
+                  restart()
+                  break;
+              }
+      else
+      {
+          prinTable();
+                  
+          player1();
+          break;
+      }
+      
+            
+               
+             
+         
+      }
+      
+      case "2":
+          if(array[0][1] !== " ")
+              {
+               
+                
+                botPlayer();
+               
+            break;
+            
+                
+            
+                }
+         else {
+          
+             array[0][1] = "O";
+             if( winnerChecker2() )
+              {
+                  restart()
+                  break;
+              }
+      else
+      {
+          prinTable();
+                  
+          player1();
+          break;
+      }
+      
+         }
+      case "3":
+          if(array[0][2] !== " ")
+              {
+                botPlayer();
+                break;
+              }
+      else{ array[0][2] = "O";
+          if( winnerChecker2() )
+              {
+                  restart()
+                  break;
+              }
+      else
+      {
+          prinTable();
+                  
+          player1();
+          break;
+      }
+      
+      
+      }
+      
+      case "4":
+          if(array[1][0] !== " ")
+              {
+                botPlayer();
+                console.log("it went break!!!")
+                break;
+              }
+              else{ array[1][0] = "O";
+                  if( winnerChecker2() )
+                      {
+                          restart()
+                          console.log("What the fuck")
+                          break;
+                      }
+              else
+              {
+                  prinTable();
+                          
+                  player1();
+                  console.log("Why doesn't it print this come on");
+                  break;
+              }
+              
+              
+              }
+      case "5":
+      
+      if(array[1][1] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[1][1] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+      
+         
+      
+          }
+ 
+      case "6":
+      
+      if(array[1][2] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[1][2] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+         
+      
+          }
+      
+      case "7":
+      
+      if(array[2][0] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[2][0] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+         
+      
+          }
+      case "8":
+      
+      if(array[2][1] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[2][1] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+         
+      
+          }
+      case "9":
+      
+      if(array[2][2] !== " ")
+          {
+            botPlayer();
+            break;
+          }
+          else{ array[2][2] = "O";
+              if( winnerChecker2() )
+                  {
+                      restart()
+                      break;
+                  }
+          else
+          {
+              prinTable();
+                      
+              player1();
+              break;
+          }
+      
+      
+         
+      
+          }
+      
+}
+
+}
+
 
 
    async function pickz()
@@ -1067,7 +1078,8 @@ async function player2()
         else if (pickyNemesis === "hum")
             {
                 listz= true;
- return false 
+                player1();
+ return false;
             }
             else 
             {
