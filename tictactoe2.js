@@ -11,11 +11,11 @@ function getInput(prompt)
         r1.question(prompt,(input)=> {
             resolve(input);
         }) 
-           
-           
+      
 
     })
 }
+
 
 // SO  DRAW IS IT WILL CHECK IF ITS NULL AND CHECK IF ALL THE COLUMNS CONTAIN X OR O 
 let as = "";
@@ -23,49 +23,25 @@ let player1s = "";
 let player2s = "";
 let askAgain = "";
 let restartBot = false;
-let pickyNemesis = "";
+let pickyNemesis = ""; 
+let listz =false;
+let botNum = 0;
 //let player2s= "";
 const array= [ [" "," "," "],[" "," "," "],[" "," "," "]]
-
-//async function getInput1()
-//{
-//do{
-
-   //  as  = await getInput("Enter player 1")
- //    console.log("you entered FIRST INPUT" + as);
-
-   // }while( player1s !== "stop")
-//}
-   // can choose  a skill level  they want to 
- 
-
-
 
    let init = 1;
    let init1 = 1;
 
-   async function pickEnemy()
-   {
-   console.log("PLAY WITH BOT(bot) OR HUMAN(hum)?");
-    pickyNemesis = await getInput();
-   if(pickyNemesis=== "bot")
-   {
-      restartBot = true; 
-      platButton();
-   }
-   else{
-    platButton();
-   }
-   
-   }
-
+     
 let flat = "Do you want to CONTINUE playing ? (Y/N)"
 
 function  botPlayer()
 {
-    // I am trying to make an AI player here like bruh using a random math 
-    let botNum =  Math.floor(Math.random()*9)+1
+    console.log("what the heck")
   
+    // I am trying to make an AI player here like bruh using a random math 
+     botNum =  Math.floor(Math.random()*9)+1;
+     console.log(botNum);
 console.log(botNum);
 init++;
    
@@ -318,7 +294,7 @@ init++;
    
   async function  restart()
 
-  {
+  {      listz= false;
     restartBot = false;
    init = 1;
    init1 = 1;
@@ -339,8 +315,8 @@ init++;
  console.log("what you entered are some abc");
  if(askAgain=="y")
     {
-       pickEnemy();
-       player1();
+      
+      pickz();
         return;
     
     }
@@ -374,6 +350,7 @@ init++;
             console.log("=====================================")
             console.log("THE A.I. IS THE WINNER!!!")
             console.log("=====================================")
+            listz= false;
             return true;
         }
         else
@@ -381,7 +358,7 @@ init++;
             console.log("=====================================")
             console.log("Player TWO IS THE WINNER!!!")
             console.log("=====================================")
-            
+            listz= false;
             return true;
         }
     
@@ -424,17 +401,21 @@ init++;
             console.log("=====================================")
 console.log("Player ONE IS THE WINNER!!!")
 console.log("=====================================")
-
+listz= false;
 return true;
         }
    }
 async function player1()
 {
-    init++;
-    console.log("FINAL VALUE OF INIT" +  init)
-console.log("Enter Input 1(X): ");
- player1s = await getInput("hello player 1: ");
-console.log("INPUT 1: " + player1s)
+    if(listz === true)
+        {
+            init++;
+            console.log("FINAL VALUE OF INIT" +  init)
+        console.log("Enter Input 1(X): ");
+         player1s = await getInput("hello player 1: ");
+        console.log("INPUT 1: " + player1s)
+        }
+   
 if(player1s === "stop")
     {
         console.log("Buy")
@@ -462,7 +443,6 @@ if(player1s === "stop")
 else {
     array[0][0] = "X";
 
-//wait
 
     if( winnerChecker() )
         {
@@ -475,7 +455,7 @@ else
     prinTable();
  
     console.log("VALUE OF INTIT1 "  + init1);
-    if(botPlayer === true)
+    if(restartBot === true)
         {
 botPlayer()
 break;           
@@ -489,9 +469,7 @@ break;
     
 }
 
-      
-         
-       
+     
    
 }
 
@@ -520,7 +498,7 @@ case "2":
 else
 {
     prinTable();
-    if(botPlayer === true)
+    if(restartBot === true)
         {
 botPlayer()
 break;           
@@ -552,7 +530,7 @@ else
 {
     prinTable();
             
-    if(botPlayer === true)
+    if(restartBot === true)
         {
 botPlayer()
 break;           
@@ -571,8 +549,7 @@ case "4":
     if(array[1][0] !== " ")
         {
             console.log(" Occupied slot . Try again")
-         
-         
+       
           player1();
           break;
         }
@@ -586,7 +563,7 @@ case "4":
         {
             prinTable();
                     
-            if(botPlayer === true)
+            if(restartBot === true)
                 {
         botPlayer()
         break;           
@@ -597,8 +574,7 @@ case "4":
                     break;
                 }
         }
-        
-        
+   
         }
 case "5":
 
@@ -620,7 +596,7 @@ if(array[1][1] !== " ")
     {
         prinTable();
                 
-        if(botPlayer === true)
+        if(restartBot === true)
             {
     botPlayer()
     break;           
@@ -637,11 +613,6 @@ if(array[1][1] !== " ")
    
 
     }
-
-// slit that mf thing!!!!
-
-
-
 
 case "6":
 
@@ -663,7 +634,7 @@ if(array[1][2] !== " ")
     {
         prinTable();
                 
-        if(botPlayer === true)
+        if(restartBot === true)
             {
     botPlayer()
     break;           
@@ -700,7 +671,7 @@ if(array[2][0] !== " ")
     {
         prinTable();
                 
-        if(botPlayer === true)
+        if(restartBot === true)
             {
     botPlayer()
     break;           
@@ -736,7 +707,7 @@ if(array[2][1] !== " ")
     {
         prinTable();
                 
-        if(botPlayer === true)
+        if(restartBot === true)
             {
     botPlayer()
     break;           
@@ -772,7 +743,7 @@ if(array[2][2] !== " ")
     {
         prinTable();
                 
-        if(botPlayer === true)
+        if(restartBot === true)
             {
     botPlayer()
     break;           
@@ -788,11 +759,6 @@ if(array[2][2] !== " ")
    
 
     }
-
-    
-
-
-//end here
 
 }
 }
@@ -962,12 +928,7 @@ async function player2()
            
         
             }
-        
-        // slit that mf thing!!!!
-        
-        
-        
-        
+ 
         case "6":
         
         if(array[1][2] !== " ")
@@ -1084,45 +1045,73 @@ async function player2()
         
 }
 }
-// the fucking lie in this world should not end like this man what the hell
 
-pickEnemy()
-if(init % 2 !== 0)
-    {
-        player1();
-    }
-    else
-    {
-        if(restartBot===true)
-            {
-            botPlayer();
-            }
-            else{
-                player2();
-            }   
-     
-    }
 
-function platButton()
-{
-    if(init % 2 !== 0)
+
+
+
+   async function pickz()
+   {
+    
+    console.log("PLAY WITH BOT(bot) OR HUMAN(hum)?");
+    pickyNemesis = await getInput("");
+
+    if ( pickyNemesis === "bot")
         {
+            restartBot = true;
+            listz= true;
+            console.log(listz );
             player1();
+            return true;
         }
-        else
+        else if (pickyNemesis === "hum")
+            {
+                listz= true;
+ return false 
+            }
+            else 
+            {
+                console.log("Invalid choice. Please enter 'bot' or 'hum'.");
+                pickz();
+            }
+        
+   
+   }
+    pickz();
+    /*
+    if(pickz())
         {
-            if(restartBot===true)
-                {
-                botPlayer();
-                }
-                else{
-                    player2();
-                }   
-         
-        }
-    
 
+
+        }
+        else{
+            
+        }
+        */
+function stop()
+{
     
+          
+          if(init % 2 !== 0)
+            {
+                player1();
+            }
+            else
+            {
+                if(restartBot===true)
+                    {
+                    botPlayer();
+                    }
+                    else{
+                        player2();
+                    }   
+             
+            }
+        
+      
+       
 }
-    
+
+
+
 
