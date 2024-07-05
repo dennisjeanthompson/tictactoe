@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.but1
+{
+    background-color: red;
+}
+.pops
+{
+    background-color:blue;
+
+}
+#tellme
+{
+    background-color: lightblue;
+}
+    </style>
+</head>
+<body>
+    <div>
+       <button class ="but1" onmouseout="doIt(this)">
+press
+       </button> 
+       <button class="but2" ondragstart=""></button>
+       <button class="but2" onclick=""> </button>
+        
+
+
+    </div>
+<div>
+    <button class="pops" id="pops">
+        sda
+    </button>
+</div>
+<div id="tellme">
+sasd
+</div>
+<div id="idkz" > 
+    hi
+<button id="btnz" onclick="">
+    press me
+</button>
+</div>
+
+
+<div class="but2" onmouseout="doIt(this)"></div>
+
+<!--ssss-->
+<div>
+    <button onmousedown="">
+
+    </button>
+    <button>
+        
+    </button>
+</div>
+
+
+    <script>
+        const idkz = document.getElementById("idkz");
+        const btnz = document.getElementById("btnz");
+        const pop = document.querySelector(".pops");
+        const btn1 = document.querySelector(".but1");
+        const placeR= document.querySelector(".but2");
+
+        function pressme()
+        {
+           
+            idkz.innerHTML += "Hello"
+        }
+        btnz.addEventListener("click",pressme(()=>{
+           
+        }))
+function but2()
+{
+    pop.style.display= "hidden";
+}
+pop.addEventListener("click",but2(),()=>{
+    pop.style.display= "block";
+  placeR.innerHTML = "Hello"
+})
+
+function doIt(element)
+{
+    
+   
+    element.style.backgroundColor ="pink";   
+    setTimeout(()=>{
+        element.style.backgroundColor="blue";
+    
+       // placeR.innerHTML = "Goodbye";
+     },1000);
+  
+
+}
+    </script>
+</body>
+</html>
