@@ -55,6 +55,7 @@ async function playerMove(player) {
         const pos = parseInt(move) - 1;
         const row = Math.floor(pos / 3);
         const col = pos % 3;
+        console.log(col  + "value of column (col)");
         if (pos >= 0 && pos < 9 && board[row][col] === " ") {
             board[row][col] = player;
             break;

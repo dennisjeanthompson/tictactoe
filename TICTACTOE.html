@@ -103,7 +103,12 @@ const bt1 = document.querySelector(".bt1");
 const enter= document.getElementById("enter");
 const bt2 = document.querySelector(".bt2");
 const enter1= document.getElementById("ent1");
-const bt3 = document.querySelector(".bt3");
+const bt4 = document.querySelector(".bt4");
+const bt5 = document.querySelector(".bt5");
+const bt6 = document.querySelector(".bt6");
+const bt7 = document.querySelector(".bt7");
+const bt8 = document.querySelector(".bt8");
+const bt9 = document.querySelector(".bt9");
 //bt1.addEventListener("click",function())
 bt3.addEventListener("click",()=>{
     ent3.innerHTML =`X` ;
@@ -160,7 +165,26 @@ bt1.addEventListener("click",function(){
     winnerChecker()
 });
    
-;
+bt4.addEventListener("click",function(){
+    array[1][0] = "X";
+    console.log(array);
+    enter.innerHTML = "X";
+    enter.style.color = "blue";
+    enter.style.fontSize = "30px";
+    enter.style.fontWeight = "bold";
+    enter.style.textTransform = "uppercase";
+    enter.style.textAlign = "center";
+    enter.style.backgroundColor = "yellow";
+    enter.style.padding = "10px";
+    enter.style.borderRadius = "10px";
+    enter.style.boxShadow = "0px 0px 10px 5px rgba(0,0,0,0.5)";
+    enter.style.transition = "all 0.4s ease-in-out";
+   
+    enter.style.zIndex = "1000";
+    enter.style.position
+    winnerChecker()
+});
+   
 
 function winnerChecker()
 {
@@ -172,6 +196,6 @@ function winnerChecker()
 }
 console.log(array[0][0]);
 
-    </script>
+    </script>s
 </body>
 </html>
