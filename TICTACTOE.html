@@ -77,8 +77,9 @@ background-color: rgb(68, 0, 0);
 <div class="flat">
     <div class="abz"> 
     <div class="abz1">
-       <button class="bt1"><span id="enter"></span></button>
-       <button class="bt2">01</button>
+       <button class="bt1"><span id="enter" ></span></button>
+       <button class="bt2"><p id="ent1"></p>
+       </button>
        <button class="bt3">02</button>
     </div>
     <div class="alz">
@@ -97,16 +98,42 @@ background-color: rgb(68, 0, 0);
 
 
     <script>
-        array = [[" "," "," "][" "," "," "][" "," "," "]]     
+        array = [[" "," "," "],[" "," "," "],[" "," "," "]]; //fucking hell
 const bt1 = document.querySelector(".bt1");
 const enter= document.getElementById("enter");
-
+const bt2 = document.querySelector(".bt2");
+const enter1= document.getElementById("ent1");
 function btnz1()
 {
-enter.innerHTML=  `X`
+enter.innerHTML +=`X`;
 }
 
-bt1.addEventListener("click",btnz1)
+//bt1.addEventListener("click",function())
+bt2.addEventListener("click",()=>{
+    enter1.innerHTML +=`O`;
+    enter1.innerText="what"
+})
+bt1.addEventListener("click",()=>{
+    enter.innerHTML="de";
+})
+bt1.addEventListener("click",function(){
+    array[0][0] = "X";
+    console.log(array);
+    enter.innerHTML = "X";
+    enter.style.color = "blue";
+    enter.style.fontSize = "30px";
+    enter.style.fontWeight = "bold";
+    enter.style.textTransform = "uppercase";
+    enter.style.textAlign = "center";
+    enter.style.backgroundColor = "yellow";
+    enter.style.padding = "10px";
+    enter.style.borderRadius = "10px";
+    enter.style.boxShadow = "0px 0px 10px 5px rgba(0,0,0,0.5)";
+    enter.style.transition = "all 0.4s ease-in-out";
+    enter.style.cursor = "pointer";
+    enter.style.zIndex = "1000";
+    enter.style.position
+});
    
 ;
     </script>
