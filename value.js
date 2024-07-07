@@ -5,6 +5,6 @@ const col = pos % 3;
 console.log(col +  "col ") 
 console.log(row + " row")
 console.log(pos + "  pos");
-const pos1 = 2;
-pos1 =Math.floor(3/3);
-console.log(pos1 ( 2 %3 )) 
+let pos1 = 2;
+const pos12 = Math.floor(pos1 /4);
+console.log(pos12) 
