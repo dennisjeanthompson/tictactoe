@@ -1,104 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe </title>
-
-<style>
-.flat{
-    height: 300px;
-    width: 300px;
-    background-color: red;
-
-    position: relative;
-bottom: 0%;
-    top: 300px;
-right: -722px;
-
-display: flex;
-justify-content: center;
-align-items: center;
-
-}
-#body
-{
-background-color: green;
-    height: 100px;
-}
-.abz{
-    position: absolute;
-display: grid;
-
-
-margin-top: 20px;
-}
-.pa
-{
- margin-left: 103px;   
-}
-.abz1
-{
-    display: grid;
-    grid-template-columns: 100px 100px 100px;
-}
-.alz
-{
-    display: grid;
-    grid-template-columns:  100px 100px 100px;
-   
-}
-button
-{
-background-color:rgb(170, 170, 53);
-height: 130px;
-width: 104px;
-border-color: rgb(255, 29, 29);
-border-style:ridge;
-}
-.bt1
-{
-background-color: rgb(68, 0, 0);
-
-
-
-
-}
-.bt1:hover{
-    background-color: rgb(255, 0, 0);
-  
-
-    transition: background-color 0.4s ease-in-out;
-}
-</style>
-</head>
-<body id="body">
-  
-<div class="flat">
-    <div class="abz"> 
-    <div class="abz1">
-       <button class="bt1"><span id="enter" ></span></button>
-       <button class="bt2"><p id="ent1"></p>
-       </button>
-       <button class="bt3"><p id="ent3"></button>
-    </div>
-    <div class="alz">
-        <button class="bt4"><p id="enter2"></p></button>
-        <button class="bt5"><p id="enter3"></p></button>
-        <button class="bt6"><p id="enter4"></p></button>
-    </div>
-    <div class="alz">
-        <button class="bt7"><p id="enter5"></p></button>
-        <button class="bt8"><p id="enter6"></p></button>
-        <button class="bt9"><p id="enter7"></p></button>
-    </div>
-</div>
-</div>
-
-
-
-    <script>
-        array = [[" "," "," "],[" "," "," "],[" "," "," "]]; //fucking hell
+array = [[" "," "," "],[" "," "," "],[" "," "," "]]; //fucking hell
 const bt1 = document.querySelector(".bt1");
 const enter3= document.getElementById("enter");
 
@@ -300,39 +200,7 @@ bt9.addEventListener("click",function(){
    
 
 
-function winnerChecker(pla)
-{
- 
- 
- 
-    const winnPattern = [ [[0,0],[0,1],[0,2]],[[1,0],[1,1],[1,2]], [[2,0],[2,1],[2,2]] , [[0,0],[1,0],[2,0]], [[0,1],[1,1],[2,1]], [[0,2],[1,2],[2,2]],[[0,2],[1,1],[2,0]], [[0,0],[1,1],[2,2]]  ]
-        
-return winnPattern.some(pattern =>pattern.every( ([r,c]) => array[r][c] === player ))
 
-
-
-
-
-
-
-}
-function playGame()
-{
-    let currentPlayer ="X"
-    for(let i = 0; i <= 9 ; i++)
-    {
-        if(winnerChecker(currentPlayer))
-        {
-            console.log("You won player rhar I don't know of existing")
-            alert("you won I guess")
-        }
-
-    }
-
-
-
-
-}
 
 /* OLD METHOD
 function winnerChecker()
@@ -345,10 +213,3 @@ function winnerChecker()
 }
 */
 console.log(array[0][0]);
-
-    </script>
-    <script src="TICJS.js">
-
-    </script>
-</body>
-</html>
