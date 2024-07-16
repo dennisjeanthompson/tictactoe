@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+</head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: lightblue;
+    }
+    button {
+        margin: 10px;
+    }
+    #dialogs{
+        width: 300px;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+        
+        position: absolute;
+        z-index:21;
+    }
+</style>
+asasd
+<span>
+    aas
+    <form>
+        asasd dick naab
+    </form> 
+    asdasasd
+</span>
+
+<body>
+    <button onclick="openDialog()">Open Dialog</button>
+    <dialog id="dialogs">
+        <h2>Dialog Box</h2>
+        <p>This is a dialog box. Click "OK" to close it.</p>
+        <button onclick="closeDialog()">OK</button>
+    </dialog>
+    <script>
+        const as = document.getElementById('dialogs');
+        function openDialog() {
+            document.querySelector('dialog').showModal();
+            as.style.display="block";
+        }
+        function closeDialog() {
+            document.querySelector('dialog').close();
+           
+as.style.display="none";
+        }
+    </script>
+</body>
+</html>

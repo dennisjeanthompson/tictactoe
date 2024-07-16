@@ -10,3 +10,4 @@ console.log("cole picker");
 array = [["notsomeone","inkoke"],["someone","in","swim"]]
 console.log(array[1][2])
 
+console.log("helo evertyone is coding right know know you kn")

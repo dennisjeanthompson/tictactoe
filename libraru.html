@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #p{
+            
+         
+         background-color: red;
+         height: 200px; 
+        }
+        #itself{
+            background-color: red;
+            height: 200px;
+            width: 200px;
+            display: none;
+            position: absolute;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+
+        ::backdrop {
+            background-image: linear-gradient(
+              45deg,
+              magenta,
+              rebeccapurple,
+              dodgerblue,
+              green
+            );
+            opacity: 0.75;
+          }
+    </style>
+</head>
+<body>
+    <button  onclick="openDialogz()">open Dialog</button>
+    <dialog id="itself"><p id = "p">th  is is dialog </p>
+
+   
+ 
+        <h2>Welcome</h2>
+        <p>this is a sample of dialog box</p>
+        <button onclick="closeDialogz()"> Close</button>
+    
+   
+    </dialog>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script>
+        const ad = document.getElementById("itself");
+console.log("fuck you")
+
+let  nameBook =  prompt("Enter the name of the book: ");
+console.log(nameBook);
+const array = [];
+function Book(nameBook)
+{   
+return nameBook
+}
+function AddBook(nameBook)
+{
+    array.push(new Book(nameBook));
+    console.log(array);
+}
+function displayBooks()
+{
+    for(let i = 0; i< array.length; i++)
+    {
+        console.log(array[i].nameBook);
+    }
+}
+displayBooks();
+AddBook("kickme in the ass");
+displayBooks();
+const dialog = document.getElementById("p");
+dialog.show();
+setTimeout(() => {
+    dialog.close();
+}, 3000);   
+
+function openDialogz()
+{
+    const dialog =document.getElementById("itself");
+    dialog.showModal();
+    dialog.style.display="block";
+}
+function closeDialogz()
+{
+    const dialog =document.getElementById("itself");
+    dialog.close(); 
+    dialog.style.display="none";
+}
+
+    </script>
+  
+
+</body>
+</html>

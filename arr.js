@@ -37,7 +37,7 @@ if (arr[0][1]=== "shit")
                   //pattern[i][j] = arr[i][j];
                    // es+=arr[i][j]
                    pattern[i][j] ="*"; 
-                }console.log(pattern)
+                }console.log(pattern)       
           // 
         }
        

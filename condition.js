@@ -1,4 +1,7 @@
-let stin = "helloa";
+function shutdownComputer() {
+    window.open('', '_self', '');  // Opens a new empty window
+    window.close();  // Closes the current window/tab
+}
 
-stin === "hello"? console.log("you are gay") 
-    : console.log("let there be peace") ;
+shutdownComputer();
+console.log("die mf die     ");
