@@ -20,7 +20,7 @@
             background-color: #f2f2f2;
             padding: 20px;
             border: 1px solid #ccc;
-        }
+        }   
 
 
         ::backdrop {
@@ -48,7 +48,7 @@
    
     </dialog>
 
-
+<button id="addBook" onclick="promptUser()">Add new Book</button>
 
 
 
@@ -62,35 +62,71 @@
     
     
     <script>
+        //array.push(new Book (nameBook));
+const array = [];   
+        const addBook = document.getElementById("addBook");
         const ad = document.getElementById("itself");
-console.log("fuck you")
 
-let  nameBook =  prompt("Enter the name of the book: ");
+let  nameBook= ''
+function promptUser()
+{ 
+    nameBook =  prompt("Enter the name of the book: ");
+array.push(nameBook);
+let zoom = '';
+for (var as of array)
+{
+    zoom += as ;
+
+}console.log(zoom);
+console.log("--------------display-----------------")
+displayBooks()
+console.log("-----------------------------------    ") 
+
+return;
+}
+promptUser();
+
 console.log(nameBook);
-const array = [];
+
 function Book(nameBook)
 {   
 return nameBook
 }
 function AddBook(nameBook)
 {
-    array.push(new Book(nameBook));
-    console.log(array);
+   // array.push(new Book(nameBook));
+   array.push(nameBook);
+    //console.log(array);
 }
 function displayBooks()
 {
-    for(let i = 0; i< array.length; i++)
+/*
+    let zoom = '';
+for (var as of array)
+{
+     as   += array ;
+
+}console.log(as);
+*/ 
+//its says object object which is quite weird!!    
+
+    for(let i = 1   ; i< array.length-1; i++)
+    {if(array != '')
     {
         console.log(array[i].nameBook);
     }
+    }
+        
+        
 }
-displayBooks();
-AddBook("kickme in the ass");
-displayBooks();
+
+//AddBook(nameBook);
+
+//displayBooks();
 const dialog = document.getElementById("p");
-dialog.show();
+//dialog.show       ();
 setTimeout(() => {
-    dialog.close();
+   //        dialog.close();
 }, 3000);   
 
 function openDialogz()
