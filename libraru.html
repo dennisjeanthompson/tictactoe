@@ -36,6 +36,7 @@
     </style>
 </head>
 <body>
+    <div id="subBody"></div>
     <button  onclick="openDialogz()">open Dialog</button>
     <dialog id="itself"><p id = "p">th  is is dialog </p>
 
@@ -50,7 +51,7 @@
 
 <button id="addBook" onclick="promptUser()">Add new Book</button>
 
-
+<button>Display Available Books</button>
 
 
 
@@ -67,17 +68,25 @@ const array = [];
         const addBook = document.getElementById("addBook");
         const ad = document.getElementById("itself");
 
-let  nameBook= ''
+let  nameBook= '';
+let authorBook= '';
+let  title = ''
+let  year = ''; 
+let shortDescription = '';
 function promptUser()
 { 
     nameBook =  prompt("Enter the name of the book: ");
-array.push(nameBook);
-let zoom = '';
+
+array.push(nameBook);       
+
+/*let zoom = '';
 for (var as of array)
 {
     zoom += as ;
 
+
 }console.log(zoom);
+*/
 console.log("--------------display-----------------")
 displayBooks()
 console.log("-----------------------------------    ") 
@@ -110,11 +119,11 @@ for (var as of array)
 */ 
 //its says object object which is quite weird!!    
 
-    for(let i = 1   ; i< array.length-1; i++)
-    {if(array != '')
+    for(let i = 0 ; i< array.length ; i++)
     {
-        console.log(array[i].nameBook);
-    }
+
+console.log(array[i]);
+    
     }
         
         
