@@ -106,7 +106,13 @@
         <button  onclick="openDialogz()">open Dialog</button>
         <dialog id="itself"><p id = "p"> this is dialo  g </p>
     <form>
-    <input type='text' placeholder="Enter your name">
+   
+    <input type ='text' placeholder="Enter your email" id="email" >
+    <input  type ="text" placeholder="Title" id="title">
+    <input  type ="text" placeholder="Year" id="year">
+    <input  type ="text" placeholder="Short Description" id="shortD">
+    <input type="text" placeholder="Author" id="author">
+    <input type="submit" value="Submit" id="sub" onclick="uploadD()"> 
     </form>
        
 
@@ -116,17 +122,35 @@
     
     
     <script>
+        const email= document.getElementById("email");
+        const titlez = document.getElementById("title");
         const doom = document.getElementById("doom");
+    const sub = document.getElementById("sub");
+    const yearz = document.getElementById("year");
+const shortD =document.getElementById("shortD")
+const submit = document.getElementById("sub")
         //array.push(new Book (nameBook));
 const array = [];   
         const addBook = document.getElementById("addBook");
         const ad = document.getElementById("itself");
 const subBody = document.getElementById("subBody");
 let  nameBook= '';
-let authorBook= '';
+let authorBook= ''; 
 let  title = ''
 let  year = ''; 
 let shortDescription = '';
+function uploadD()
+{
+array.push(email);
+array.push(shortD);
+console.log(array);
+event.preventDefault();
+for(let i = 0; i < array.length; i++)
+{
+    console.log(array   [i]);
+}
+
+}
 function promptUser()
 { 
     //  nameBook =  prompt("Enter the name of the book: ");     
@@ -145,11 +169,11 @@ for (var as of array)
 console.log("--------------display-----------------")
 displayBooks()
 console.log("-----------------------------------    ") 
-doom.style.display= block;
-doom.innerHTML  +=`<dialog = "itselfz"> <form> <input placeholder="Enter the name of the book!"></form></dialog>`
-doom.style.display= block;
+//doom.style.display= block;
+//doom.innerHTML  +=`<dialog id="itselfz"> <form> <input placeholder="Enter the name of    he book!"></form></dialog>`
+//doom.style.display= block;
 return;
-}
+}   
 promptUser();
 
 console.log(nameBook);
@@ -203,6 +227,7 @@ function openDialogzs()
     const dialog =document.getElementById("itselfs");
     dialog.showModal();
     dialog.style.display="block";
+    event.preventDefault();
 }
 
 function openDialogz()
@@ -210,6 +235,7 @@ function openDialogz()
     const dialog =document.getElementById("itself");
     dialog.showModal();
     dialog.style.display="block";
+    event.preventDefault();
 }
 function closeDialogz()
 {
