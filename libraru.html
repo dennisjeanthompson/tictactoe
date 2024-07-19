@@ -46,12 +46,33 @@
             background-color: lightcoral;
             position: absolute;     
           }
+          #itselfs{
+            background-color: red;
+            height: 200px;
+            width: 200px;
+         display: block;
+            position: absolute;
+            background-color: #9e09 092;
+            padding: 20px;
+            border: 1px solid #470808;
+            /* i love horse and ride them day and night */
+        }   
+#iteselfz{
+    background-color: red;
+    height: 200px;
+    width: 200px;
+ display: block;
+    position: absolute;
+    background-color: #9e09 092;
+    padding: 20px;
+    border: 1px solid #470808;
+}
     </style>
 </head>
 <body>
    
     <button  onclick="openDialogz()">open Dialog</button>
-    <dialog id="itself"><p id = "p">th  is is dialog </p>
+    <dialog id="itselfs"><p id = "p">th  is is dialog you should fucking listen to me you mf better suck my dick ma men you ugly fuck go sucka dick somewhere else </p>
 <form>
 <input type="text" placeholder="Enter your name">
 </form>
@@ -59,31 +80,31 @@
  
 
     
-   
-    </dialog>
+    <!--  
+    <dialog>
 
 <button id="addBook" onclick="promptUser()">Add new Book</button>
 
 <button>Display Available Books</button>
     <div id= "doom">MegaMin d
-        <dialog id="itself"><p id = "p">th  is is dialog </p>
+        <dialog id="itselfs"><p id = "p">th  is is dialog </p>
             <form>
             <input type="text" placeholder="Enter your name">
             </form>
                
-             
-            
+      
+
+      
                 
                
-                </dialog>
-
+                </dialog>   
 
     </div>
+       -->   
 
-    <body>
    
         <button  onclick="openDialogz()">open Dialog</button>
-        <dialog id="itself"><p id = "p"> this is dialog </p>
+        <dialog id="itself"><p id = "p"> this is dialo  g </p>
     <form>
     <input type='text' placeholder="Enter your name">
     </form>
@@ -125,7 +146,7 @@ console.log("--------------display-----------------")
 displayBooks()
 console.log("-----------------------------------    ") 
 doom.style.display= block;
-doom.innerHTML =`<dialog> <form> <input placeholder="Enter the name of the book!"></form></dialog>`
+doom.innerHTML  +=`<dialog = "itselfz"> <form> <input placeholder="Enter the name of the book!"></form></dialog>`
 doom.style.display= block;
 return;
 }
@@ -177,6 +198,13 @@ setTimeout(() => {
    //        dialog.close();
 }, 3000);   
 
+function openDialogzs()
+{
+    const dialog =document.getElementById("itselfs");
+    dialog.showModal();
+    dialog.style.display="block";
+}
+
 function openDialogz()
 {
     const dialog =document.getElementById("itself");
@@ -193,6 +221,6 @@ function closeDialogz()
     </script>
   
 </div>
-
+</body>
 </body>
 </html>
