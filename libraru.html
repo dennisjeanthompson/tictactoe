@@ -75,6 +75,7 @@
     <dialog id="itselfs"><p id = "p">th  is is dialog you should fucking listen to me you mf better suck my dick ma men you ugly fuck go sucka dick somewhere else </p>
 <form>
 <input type="text" placeholder="Enter your name">
+<div id="dhock">lonely</div>
 </form>
    
  
@@ -122,6 +123,7 @@
     
     
     <script>
+        const dhock = document.getElementById("dhock");
         const email= document.getElementById("email");
         const titlez = document.getElementById("title");
         const doom = document.getElementById("doom");
@@ -141,15 +143,21 @@ let  year = '';
 let shortDescription = '';
 function uploadD()
 {
-array.push(email);
-array.push(shortD);
+    let emailz = email.value;
+    let titlez = shortD.value;
+array.push(emailz);
+array.push(titlez);
 console.log(array);
+let arrayz = [email,shortD];
+console.log(arrayz);    
 event.preventDefault();
 for(let i = 0; i < array.length; i++)
 {
-    console.log(array   [i]);
+    console.log(array [i]);   
+    
 }
-
+console.log(array[0]);
+dhock.innerHTML=`${array}there is it`;
 }
 function promptUser()
 { 
