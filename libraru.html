@@ -85,16 +85,26 @@
     border: 1px solid #470808;
 }
 #mainBody{
- 
-  
-    height: 299922px;
+
+
+    display: flex;
+ justify-content:center;
+
 
 }
 #suby{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 20px;
+   
+  
+
     height: 500px;
+    background-color: #662b2b;
+    width: 500px;
+    display: flex;
+    justify-content: top;
+    align-items: top;
+    position: absolute;
+    height: 2000px;
+
 }
     </style>
 </head>
@@ -102,7 +112,7 @@
    
   
     <div id="mainBody"> 
-        <div id="suby">
+        <div id="suby">     
 
        
 
@@ -167,6 +177,7 @@
     const yearz = document.getElementById("year");
 const shortD =document.getElementById("shortD")
 const submit = document.getElementById("sub")
+const  author = document.getElementById("author");
         //array.push(new Book (nameBook));
 const array = [];   
         const addBook = document.getElementById("addBook");
@@ -180,21 +191,27 @@ let shortDescription = '';
 function uploadD()
 {
     let emailz = email.value;
-    let titlez = shortD.value;
-    let nameBook = nameBook
-array.push(emailz);
-array.push(titlez);
+    let authorBook = author.value;
+   let title = titlez.value;
+    let year = yearz.value;
+    let shortDescription = shortD.value;
+
+//array.push(emailz);
+//array.push(titlez);
 console.log(array);
-let arrayz = [{"email":email},{"title":title},{"year":year},{"authorBook":authorBook},{"nameBook":nameBook},{"shortD":shortD}];
-console.log(arrayz);    
+let arrayz = [{"email":emailz},{"title":title},{"year":year},{"authorBook":authorBook},{"nameBook":nameBook},{"shortD":shortDescription }];
+
+console.log(arrayz[0].email );
+console.log(arrayz[1].title);    
 event.preventDefault();
-for(let i = 0; i < array.length; i++)
+for(let i = 0; i < array.length; i++)         
 {
     console.log(array [i]);   
     
 }
 console.log(array[0]);
-dhock.innerHTML=`${array}there is it`;
+dhock.innerHTML=`Book Name: ${arrayz[4].nameBook} Email: ${arrayz[0].email} Title: ${arrayz[1].title} Year: ${arrayz[2].year} Author: ${arrayz[3].authorBook} 
+Short Description: ${arrayz[5].shortD}`;
 }
 function promptUser()
 { 
