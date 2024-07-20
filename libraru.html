@@ -10,8 +10,25 @@
          
          background-color: red;
          height: 200px; 
+         background-image:linear-gradient(
+            45deg,
+    red,
+        yellow,
+           
+        cyan,
+        blue,
+        violet,
+            green)
+         
         }
         #itself{
+            background-image:linear-gradient(
+                45deg,
+                magenta,
+                rebeccapurple,
+                dodgerblue,
+                green
+            ) ;
             background-color: red;
             height: 200px;
             width: 200px;
@@ -67,14 +84,32 @@
     padding: 20px;
     border: 1px solid #470808;
 }
+#mainBody{
+ 
+  
+    height: 299922px;
+
+}
+#suby{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 20px;
+    height: 500px;
+}
     </style>
 </head>
 <body>
    
-    <button  onclick="openDialogz()">open Dialog</button>
-    <dialog id="itselfs"><p id = "p">th  is is dialog you should fucking listen to me you mf better suck my dick ma men you ugly fuck go sucka dick somewhere else </p>
+  
+    <div id="mainBody"> 
+        <div id="suby">
+
+       
+
+    
+    <dialog id="itselfs"><p id = "p"></p>
 <form>
-<input type="text" placeholder="Enter your name">
+<input type="text" placeholder="Enter Book Name">
 <div id="dhock">lonely</div>
 </form>
    
@@ -114,6 +149,7 @@
     <input  type ="text" placeholder="Short Description" id="shortD">
     <input type="text" placeholder="Author" id="author">
     <input type="submit" value="Submit" id="sub" onclick="uploadD()"> 
+    <button onclick="closeDialog()">close</button>
     </form>
        
 
@@ -138,17 +174,18 @@ const array = [];
 const subBody = document.getElementById("subBody");
 let  nameBook= '';
 let authorBook= ''; 
-let  title = ''
+let  title = '' 
 let  year = ''; 
 let shortDescription = '';
 function uploadD()
 {
     let emailz = email.value;
     let titlez = shortD.value;
+    let nameBook = nameBook
 array.push(emailz);
 array.push(titlez);
 console.log(array);
-let arrayz = [email,shortD];
+let arrayz = [{"email":email},{"title":title},{"year":year},{"authorBook":authorBook},{"nameBook":nameBook},{"shortD":shortD}];
 console.log(arrayz);    
 event.preventDefault();
 for(let i = 0; i < array.length; i++)
@@ -250,11 +287,12 @@ function closeDialogz()
     const dialog =document.getElementById("itself");
     dialog.close(); 
     dialog.style.display="none";
+    event.preventDefault();
 }
 
     </script>
-  
 </div>
-</body>
+</div>
+</span>
 </body>
 </html>
