@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Example</title>
+    <style>
+        .active {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+
+    <script>
+        // Get the button element
+        const button = document.getElementById('myButton');
+
+        // Add click event listener
+        button.addEventListener('click', function() {
+            // Toggle 'active' class on each click
+            this.classList.toggle('active');
+            
+            // Perform any additional actions when the button is clicked
+            if (this.classList.contains('active')) {
+                console.log('Button clicked (active)');
+            } else {
+                console.log('Button unclicked (inactive)');
+            }
+        });
+    </script>
+</body>
+</html>

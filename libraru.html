@@ -200,11 +200,8 @@ function uploadD()
 //array.push(emailz);
 //array.push(titlez);
 console.log(array);
-while( emailz == '' || title == '' || year == '' || authorBook == '' || shortDescription == '')
-{
-    let arrayz = [{"email":emailz},{"title":title},{"year":year},{"authorBook":authorBook},{"nameBook":nameBook},{"shortD":shortDescription }];
-}
 
+let arrayz = [{"email":emailz},{"title":title},{"year":year},{"authorBook":authorBook},{"nameBook":nameBook},{"shortD":shortDescription }];
 
 console.log(arrayz[0].email );
 console.log(arrayz[1].title);    
@@ -215,7 +212,7 @@ for(let i = 0; i < array.length; i++)
     
 }
 console.log(array[0]);
-dhock.innerHTML=`Book Name: ${arrayz[4].nameBook} Email: ${arrayz[0].email} Title: ${arrayz[1].title} Year: ${arrayz[2].year} Author: ${arrayz[3].authorBook} 
+dhock.innerHTML +=`Book Name: ${arrayz[4].nameBook} Email: ${arrayz[0].email} Title: ${arrayz[1].title} Year: ${arrayz[2].year} Author: ${arrayz[3].authorBook} 
 Short Description: ${arrayz[5].shortD}`;
 }
     function promptUser()

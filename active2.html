@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Toggle Example</title>
+</head>
+<body>
+    <button id="myButton">Click me</button>
+
+    <script>
+        // Get the button element
+        const button = document.getElementById('myButton');
+
+        // Add click event listener
+        button.addEventListener('click', function() {
+            // Toggle 'active' class on each click
+            this.classList.toggle('active');
+            
+            // Alert message based on the button state
+            if (this.classList.contains('active')) {
+                alert('Button is now active');
+            } else {
+                alert('Button is now inactive');
+            }
+        });
+    </script>
+</body>
+</html>
