@@ -116,11 +116,12 @@
 
        
 
-    
+          
     <dialog id="itselfs"><p id = "p"></p>
+        <button  onclick="openDialogz()">open Dialog</button>   
 <form>
 <input type="text" placeholder="Enter Book Name">
-<div id="dhock">lonely</div>
+<div id="dhock">lonely</div>    
 </form>
    
  
@@ -149,7 +150,7 @@
        -->   
 
    
-        <button  onclick="openDialogz()">open Dialog</button>
+     
         <dialog id="itself"><p id = "p"> this is dialo  g </p>
     <form>
    
@@ -159,7 +160,7 @@
     <input  type ="text" placeholder="Short Description" id="shortD">
     <input type="text" placeholder="Author" id="author">
     <input type="submit" value="Submit" id="sub" onclick="uploadD()"> 
-    <button onclick="closeDialog()">close</button>
+    <button onclick="closeDialogz()">close</button>          
     </form>
        
 
@@ -199,7 +200,11 @@ function uploadD()
 //array.push(emailz);
 //array.push(titlez);
 console.log(array);
-let arrayz = [{"email":emailz},{"title":title},{"year":year},{"authorBook":authorBook},{"nameBook":nameBook},{"shortD":shortDescription }];
+while( emailz == '' || title == '' || year == '' || authorBook == '' || shortDescription == '')
+{
+    let arrayz = [{"email":emailz},{"title":title},{"year":year},{"authorBook":authorBook},{"nameBook":nameBook},{"shortD":shortDescription }];
+}
+
 
 console.log(arrayz[0].email );
 console.log(arrayz[1].title);    
@@ -213,7 +218,7 @@ console.log(array[0]);
 dhock.innerHTML=`Book Name: ${arrayz[4].nameBook} Email: ${arrayz[0].email} Title: ${arrayz[1].title} Year: ${arrayz[2].year} Author: ${arrayz[3].authorBook} 
 Short Description: ${arrayz[5].shortD}`;
 }
-function promptUser()
+    function promptUser()
 { 
     //  nameBook =  prompt("Enter the name of the book: ");     
 
@@ -263,7 +268,7 @@ for (var as of array)
 //its says object object which is quite weird!!    
 
     for(let i = 0 ; i< array.length ; i++)
-    {
+    {   
 
 console.log(array[i]);
     
@@ -302,14 +307,25 @@ function openDialogz()
 function closeDialogz()
 {
     const dialog =document.getElementById("itself");
-    dialog.close(); 
-    dialog.style.display="none";
+   
+    //dialog.style.display="none";
     event.preventDefault();
+    dialog.close();
+   
 }
-
+function display()
+{
+    console.log(arrayz[0].email)
+}
     </script>
+
+
 </div>
+<div id="insideMe">
+    come Inside me Bro
+    </div>
 </div>
+
 </span>
 </body>
 </html>
