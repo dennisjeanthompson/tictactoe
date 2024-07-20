@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div id="dhock">
+        <!-- Add your HTML structure for displaying book details here -->
+    </div>
+
+    <script>
+        // Add your JavaScript code here
+
+        const dhock = document.getElementById("dhock");
+        const array = [];
+
+        function Book(name, email, title, year, author, shortDescription) {
+            this.name = name;
+            this.email = email;
+            this.title = title;
+            this.year = year;
+            this.author = author;
+            this.shortDescription = shortDescription;
+        }
+
+        function addBook(book) {
+            array.push(book);
+            displayBooks();
+        }
+
+        function displayBooks() {
+            dhock.innerHTML = '';
+            array.forEach((book, index) => {
+                const bookDiv = document.createElement('div');
+                bookDiv.id = `book-${index}`;
+                bookDiv.innerHTML = `
+                    <h2>${book.name}</h2>
+                    <p>Email: ${book.email}</p>
+                    <p>Title: ${book.title}</p>
+                    <p>Year: ${book.year}</p>
+                    <p>Author: ${book.author}</p>
+                    <p>Short Description: ${book.shortDescription}</p>
+                    <button onclick="removeBook(${index})">Remove Book</button>
+                `;
+                dhock.appendChild(bookDiv);
+            });
+        }
+
+        function removeBook(index) {
+            array.splice(index, 1);
+            displayBooks();
+        }
+
+        // Example usage
+        const book1 = new Book("Book 1", "email1@example.com", "Title 1", 2021, "Author 1", "Short Description 1");
+        const book2 = new Book("Book 2", "email2@example.com", "Title 2", 2022, "Author 2", "Short Description 2");
+
+        addBook(book1);
+        addBook(book2);
+    </script>
+</body>
+</html>

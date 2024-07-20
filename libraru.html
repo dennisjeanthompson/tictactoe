@@ -189,6 +189,7 @@ let authorBook= '';
 let  title = '' 
 let  year = ''; 
 let shortDescription = '';
+let counter = 0;
 function uploadD()
 {
     let emailz = email.value;
@@ -211,9 +212,13 @@ for(let i = 0; i < array.length; i++)
     console.log(array [i]);   
     
 }
-console.log(array[0]);
-dhock.innerHTML +=`Book Name: ${arrayz[4].nameBook} Email: ${arrayz[0].email} Title: ${arrayz[1].title} Year: ${arrayz[2].year} Author: ${arrayz[3].authorBook} 
-Short Description: ${arrayz[5].shortD}`;
+console.log(array[0]);  
+
+
+dhock.innerHTML +=`<div id="${counter++}">Book Name: ${arrayz[4].nameBook} Email: ${arrayz[0].email} Title: ${arrayz[1].title} Year: ${arrayz[2].year} Author: ${arrayz[3].authorBook} 
+Short Description: ${arrayz[5].shortD} <button  >RemoveBook</button></div>`;
+;
+
 }
     function promptUser()
 { 
@@ -314,6 +319,7 @@ function display()
 {
     console.log(arrayz[0].email)
 }
+
     </script>
 
 
