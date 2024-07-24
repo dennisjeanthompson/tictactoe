@@ -277,17 +277,19 @@ function AddBook(nameBook)
 
 
 function displayBooks(){
- dhock.innerHTML = '';
-    array.forEach((book, index) => {
-        const bookDiv = document.createElement("dhok");
+ //dhock.innerHTML = '';
+    //array.forEach(( index) => {
+        const bookDiv = document.createElement("div");
         bookDiv.id = `book-${index}`;
         bookDiv.innerHTML = `
-            <h2>${book.email}</h2>
+            <h2>${book.title}}</h2>
             <p>Title: ${book.title}</p>
             <p>Year: ${book.year}</p>
             <p>Author: ${book.author}</p>`;
             dhock.appendChild(bookDiv);
-})}
+}
+//)}
+//console.log("i love to suck bird's apple horizon though what a fucking shit world we live in")
 //AddBook(nameBook);
 
 //displayBooks();
@@ -335,6 +337,16 @@ function display()
 </div>
 <div id="insideMe">
     come Inside me Bro
+          
+    const dhock = document.getElementById("dhock");
+    const email= document.getElementById("email");
+    const titlez = document.getElementById("title");
+    const doom = document.getElementById("doom");
+const sub = document.getElementById("sub");
+const yearz = document.getElementById("year");
+const shortD =document.getElementById("shortD")
+const submit = document.getElementById("sub")
+const  author = document.getElementById("author");
     </div>
 </div>
 <!--let us go present this to our leader and friend's-->

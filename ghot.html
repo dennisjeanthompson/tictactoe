@@ -34,20 +34,26 @@
         }
 
         function displayBooks() {
-            dhock.innerHTML = '';
-            array.forEach((book, index) => {
-                const bookDiv = document.createElement('dhock');
-                bookDiv.id = `book-${index}`;
-                bookDiv.innerHTML = `
-                    <h2>${book.name}</h2>
+            dhock.innerHTML = ` <h2>${book.name}</h2>
                     <p>Email: ${book.email}</p>
                     <p>Title: ${book.title}</p>
                     <p>Year: ${book.year}</p>
                     <p>Author: ${book.author}</p>
                     <p>Short Description: ${book.shortDescription}</p>
-                    <button onclick="removeBook(${index})">Remove Book</button>
-                `;
-                dhock.appendChild(bookDiv);
+                    <button onclick="removeBook(${index})">Remove Book</button>`;
+            array.forEach((book, index) => {
+                //const bookDiv = document.createElement('dhock');
+               // bookDiv.id = `book-${index}`;
+                //bookDiv.innerHTML = `
+                   // <h2>${book.name}</h2>
+                   // <p>Email: ${book.email}</p>
+                    //<p>Title: ${book.title}</p>
+                  //  <p>Year: ${book.year}</p>
+                   // <p>Author: ${book.author}</p>
+                  //  <p>Short Description: ${book.shortDescription}</p>
+                   // <button onclick="removeBook(${index})">Remove Book</button>
+               // `;
+                dhock.appendChild(dhock);
             });
         }
 
