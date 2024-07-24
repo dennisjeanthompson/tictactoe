@@ -37,6 +37,7 @@
             background-color: #f2f2f2;
             padding: 20px;
             border: 1px solid #ccc;
+            
         }   
 
 
@@ -54,6 +55,7 @@
             height: 20000px;
             width: 2000px;
             z-index: -1;
+         
             
           }
           #doom{
@@ -98,13 +100,16 @@
 
     height: 500px;
     background-color: #662b2b;
-    width: 500px;
+    width: 700px;
     display: flex;
     justify-content: top;
     align-items: top;
     position: absolute;
     height: 2000px;
 
+}
+body{
+    background-color: rgb(31, 10, 10);
 }
     </style>
 </head>
@@ -159,8 +164,10 @@
     <input  type ="text" placeholder="Year" id="year">
     <input  type ="text" placeholder="Short Description" id="shortD">
     <input type="text" placeholder="Author" id="author">
-    <input type="submit" value="Submit" id="sub" onclick="displayBooks()"> 
-    <button onclick="closeDialogz()">close</button>          
+    <button  id="sub" onclick="displayBooks()">SUBMIT</button> 
+    <button onclick="closeDialogz()">close</button>  
+    <button onclick="erase()">erase</button>
+            
     </form>
        
 
@@ -252,7 +259,7 @@ for (var as of array)
 }console.log(zoom);
 */
 console.log("--------------display-----------------")
-displayBooks()
+//displayBooks()
 console.log("-----------------------------------    ") 
 //doom.style.display= block;
 //doom.innerHTML  +=`<dialog id="itselfz"> <form> <input placeholder="Enter the name of    he book!"></form></dialog>`
@@ -277,20 +284,41 @@ function AddBook(nameBook)
 
 
 function displayBooks(){
+    console.log("i am gay");
  //dhock.innerHTML = '';
     //array.forEach(( index) => {
         const bookDiv = document.createElement("div");
-        bookDiv.id = `book-${index}`;
+     
+        //bookDiv.id = `book-${index}`;
         bookDiv.innerHTML = `
-            <h2>${book.title}}</h2>
-            <p>Title: ${book.title}</p>
-            <p>Year: ${book.year}</p>
-            <p>Author: ${book.author}</p>`;
+            <h2>${email.value}}</h2>
+            <p>Title: ${titlez.value}</p>
+            <p>Year: ${yearz.value}</p> 
+            <p>Author: ${author.value}</p>;
+            <p>Author: ${shortD.value}</p>`
+            array.push(bookDiv);
             dhock.appendChild(bookDiv);
+            event.preventDefault();
 }
 //)}
 //console.log("i love to suck bird's apple horizon though what a fucking shit world we live in")
 //AddBook(nameBook);
+
+function erase()
+{  
+    if(titlez.value != "" && email.value != "" && yearz.value != "" && shortD.value != "" && author.value != "")
+    {
+       // bookDIV.innerHTML = ``;
+        titlez.value ="";
+        email.value = "";
+        yearz.value = "";
+        shortD.value = "";
+        author.value = "";
+
+  event.preventDefault();
+    }
+   
+}
 
 //displayBooks();
 const dialog = document.getElementById("p");
@@ -335,19 +363,7 @@ function display()
 
 
 </div>
-<div id="insideMe">
-    come Inside me Bro
-          
-    const dhock = document.getElementById("dhock");
-    const email= document.getElementById("email");
-    const titlez = document.getElementById("title");
-    const doom = document.getElementById("doom");
-const sub = document.getElementById("sub");
-const yearz = document.getElementById("year");
-const shortD =document.getElementById("shortD")
-const submit = document.getElementById("sub")
-const  author = document.getElementById("author");
-    </div>
+
 </div>
 <!--let us go present this to our leader and friend's-->
 </span>
