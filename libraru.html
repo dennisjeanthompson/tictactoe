@@ -178,7 +178,7 @@ body{
 
     
     <script>
-    
+        let zeus = true;
         let COUNTERTHATIDK = 0;
         
         console.log("sick")
@@ -371,18 +371,20 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
     event.preventDefault();
     console.log(as.email);  
     console.log("i am gay");
-master.innerHTML = '';
+//master.innerHTML = '';
     //array.forEach(( index) => {
-       const bookDiv = document.createElement("div");
+       
       // book();
         //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
    //book();
     //   bookDiv = '';
-    do{
-        bookHTML = array.map((book, index) => 
-        //div what a fucking pussy you are you should kill urself
-        
-                `   <div>
+//do{
+        const bookDiv = document.createElement("div");
+        const shomaw = document.createElement("div");
+        bookHTML = ""; 
+        array.forEach((as, index) =>
+        { 
+            bookHTML += `<div>
                     <h2>${as.email}d</h2>
                     <p>Title: ${as.title}</p>
                     <p>Year: ${as.year}</p> 
@@ -390,17 +392,19 @@ master.innerHTML = '';
                     <p>Author: ${as.shortDescription}</p>
                     <p>ID${index}</p>
                     <button id="Erased" onclick="Erasedz()">ERASE</button>
-                </div>    `).join("");
+                </div>`; 
+            });
                  //const book new book wtf
-          
-             //dhock.innerHTML = bookHTML;
-             bookDiv.innerHTML += bookHTML;//what the fuck is map
-             
-             master.appendChild(bookDiv);
-            
+          array.push(bookHTML);
+           ///  dhock.innerHTML  += bookHTML;
+            bookDiv.innerHTML = bookHTML;//what the fuck is map
+          //s   dhock.appendChild(bookDiv);s
+             dhock.appendChild(bookDiv);
+           //  shomaw.appendChild(bookDiv);
+            zeus =false;
         event.preventDefault();
 
-    }while()
+    //}while(zeus===true)
   
         }
      /*
