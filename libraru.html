@@ -174,7 +174,7 @@ body{
 
 
 
-//save
+
     
     <script>
     let bookDiv = "";
@@ -182,11 +182,34 @@ body{
         function book(email,title,year,shortDescription,author)
 
         {
-            this.email = email;
-            this.title = title;
-            this.year = year;
-            this.shortDescription = shortDescription;
-            this.author = author;
+            this.email = titlez.value
+            this.title = email.value ;
+            this.year = shortD.value ;
+            this.shortDescription =   shortD.value ;
+            this.author = author.value;
+/*
+
+  titlez.value ="";
+        email.value = "";
+        yearz.value = "";
+        shortD.value = "";
+        author.value = "";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
 
         }
         console.log("sick")
@@ -213,12 +236,19 @@ let shortDescription = '';
 let counter = 0;
 function displayBooks(book)
 {
-    array.push(book)
+    array.push(book);
 }
 function Erasedz()
 { 
     console.log(array.length +" array leng")
 
+    let saz  = ``;
+    for(let i = 0; i < array.length; i++)
+    {
+
+        saz += array[i];
+    }
+    console.log(saz + "val")
 console.log(array);
 event.preventDefault();
 
@@ -339,7 +369,24 @@ function displayBooks(){
     //array.forEach(( index) => {
         bookDiv = document.createElement(`div${COUNTERTHATIDK++}`);
         //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
-     
+     let bookHTML = '';
+     array.forEach((book, index) => {
+        bookHTML += `   <div>
+            <h2>${book.email}</h2>
+            <p>Title: ${book.title}</p>
+            <p>Year: ${book.year}</p> 
+            <p>Author: ${book.authorBook}</p>;
+            <p>Author: ${book.shortDescription}</p>
+            <p>ID${index}</p>
+            <button id="Erased" onclick="Erasedz()">ERASE</button>
+        </div>    `
+         
+     })
+     dhock.innerHTML = bookHTML;
+     dhock.appendChild(bookDiv);
+event.defaultPrevented();
+        }
+     /*
         //bookDiv.id = `book-${index}`;
         bookDiv.innerHTML = `
             <h2>${email.value}}</h2>
@@ -356,7 +403,7 @@ function displayBooks(){
             dhock.appendChild(bookDiv);
             console.log(COUNTERTHATIDK);
             event.preventDefault();
-}
+}*/
 //)}
 //console.log("i love to suck bird's apple horizon though what a fucking shit world we live in")
 //AddBook(nameBook);
