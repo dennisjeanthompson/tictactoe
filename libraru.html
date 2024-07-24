@@ -159,7 +159,7 @@
     <input  type ="text" placeholder="Year" id="year">
     <input  type ="text" placeholder="Short Description" id="shortD">
     <input type="text" placeholder="Author" id="author">
-    <input type="submit" value="Submit" id="sub" onclick="uploadD()"> 
+    <input type="submit" value="Submit" id="sub" onclick="displayBooks()"> 
     <button onclick="closeDialogz()">close</button>          
     </form>
        
@@ -167,9 +167,20 @@
 
 
 
-    
+
     
     <script>
+        function book(email,title,year,shortDescription,author)
+
+        {
+            this.email = email;
+            this.title = title;
+            this.year = year;
+            this.shortDescription = shortDescription;
+            this.author = author;
+
+        }
+      
         const dhock = document.getElementById("dhock");
         const email= document.getElementById("email");
         const titlez = document.getElementById("title");
@@ -190,6 +201,11 @@ let  title = ''
 let  year = ''; 
 let shortDescription = '';
 let counter = 0;
+function displayBooks(book)
+{
+    array.push(book)
+}
+
 function uploadD()
 {
     let emailz = email.value;
@@ -257,28 +273,21 @@ function AddBook(nameBook)
    array.push(nameBook);
     //console.log(array);
 }
-function displayBooks()
-{
-/*
-    let zoom = '';
-for (var as of array)
-{
-     as   += array ;
 
-}console.log(as);
-*/ 
-//its says object object which is quite weird!!    
 
-    for(let i = 0 ; i< array.length ; i++)
-    {   
 
-console.log(array[i]);
-    
-    }
-        
-        
-}
-
+function displayBooks(){
+ dhock.innerHTML = '';
+    array.forEach((book, index) => {
+        const bookDiv = document.createElement("dhok");
+        bookDiv.id = `book-${index}`;
+        bookDiv.innerHTML = `
+            <h2>${book.email}</h2>
+            <p>Title: ${book.title}</p>
+            <p>Year: ${book.year}</p>
+            <p>Author: ${book.author}</p>`;
+            dhock.appendChild(bookDiv);
+})}
 //AddBook(nameBook);
 
 //displayBooks();
@@ -328,7 +337,7 @@ function display()
     come Inside me Bro
     </div>
 </div>
-
+<!--let us go present this to our leader and friend's-->
 </span>
 </body>
 </html>
