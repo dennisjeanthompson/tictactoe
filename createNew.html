@@ -6,15 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id ='fat'>  
     <button onclick="pressMe()">
 asasd
     </button>
     <script>
+      const asd=   document.getElementById('fat');
         const divs = document.createElement("div");
         const divs1 = document.createElement("button");
 function pressMe() {
-    divs.innerHTML   += `<h1>hello</h1>
+    divs.innerHTML   += `<h1>hellso</h1>
     <p`;
 }
         // how  many everyday dude 
@@ -22,8 +23,9 @@ function pressMe() {
        // this is super vast like it is insanely vast jeez
         
         
-        divs1.innerHTML = `Button1`;
-        document.body.appendChild(divs);
+       // divs1.innerHTML = `Button1`;
+        asd.appendChild(divs);
+       // document.body.appendChild(divs);
         document.body.appendChild(divs1);
         console.log(divs);
     </script>
@@ -33,6 +35,6 @@ function pressMe() {
         
     </div>
 
-    
+</div>
 </body>
 </html>

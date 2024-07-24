@@ -364,8 +364,9 @@ function getHtml()
 }
 
 function displayBooks(){
+    event.preventDefault();
     console.log("i am gay");
- //dhock.innerHTML = '';
+dhock.innerHTML = '';
     //array.forEach(( index) => {
        let bookDiv = document.createElement(`div`);
         //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
@@ -380,11 +381,11 @@ function displayBooks(){
             <p>ID${index}</p>
             <button id="Erased" onclick="Erasedz()">ERASE</button>
         </div>    `
-         
+         //const book new book wtf
      })
-     dhock.innerHTML = bookHTML;
+     //dhock.innerHTML = bookHTML;
      dhock.appendChild(bookDiv);
-event.defaultPrevented();
+event.preventDefault();
         }
      /*
         //bookDiv.id = `book-${index}`;
