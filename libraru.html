@@ -367,7 +367,7 @@ function displayBooks(){
 
         }
     const master = document.getElementById("master");
-    let as = new book(emailz.value,title,year,shortDescription,author);//waitzz
+let as = new book(email.value,title,year,shortDescription,author);//waitzz
     event.preventDefault();
     console.log(as.email);  
     console.log("i am gay");
@@ -378,14 +378,14 @@ master.innerHTML = '';
         //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
    //book();
     //   bookDiv = '';
-    bookHTML = array.map((as, index) => 
+    bookHTML = array.map((book, index) => s
 //div what a fucking pussy you are you should kill urself
 
         `   <div>
             <h2>${as.email}d</h2>
             <p>Title: ${as.title}</p>
             <p>Year: ${as.year}</p> 
-            <p>Author: ${as.authorBook}</p>;
+            <p>Author: ${as.author}</p>;
             <p>Author: ${as.shortDescription}</p>
             <p>ID${index}</p>
             <button id="Erased" onclick="Erasedz()">ERASE</button>
