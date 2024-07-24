@@ -378,26 +378,30 @@ master.innerHTML = '';
         //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
    //book();
     //   bookDiv = '';
-    bookHTML = array.map((book, index) => 
-//div what a fucking pussy you are you should kill urself
+    do{
+        bookHTML = array.map((book, index) => 
+        //div what a fucking pussy you are you should kill urself
+        
+                `   <div>
+                    <h2>${as.email}d</h2>
+                    <p>Title: ${as.title}</p>
+                    <p>Year: ${as.year}</p> 
+                    <p>Author: ${as.author}</p>;
+                    <p>Author: ${as.shortDescription}</p>
+                    <p>ID${index}</p>
+                    <button id="Erased" onclick="Erasedz()">ERASE</button>
+                </div>    `).join("");
+                 //const book new book wtf
+          
+             //dhock.innerHTML = bookHTML;
+             bookDiv.innerHTML += bookHTML;//what the fuck is map
+             
+             master.appendChild(bookDiv);
+            
+        event.preventDefault();
 
-        `   <div>
-            <h2>${as.email}d</h2>
-            <p>Title: ${as.title}</p>
-            <p>Year: ${as.year}</p> 
-            <p>Author: ${as.author}</p>;
-            <p>Author: ${as.shortDescription}</p>
-            <p>ID${index}</p>
-            <button id="Erased" onclick="Erasedz()">ERASE</button>
-        </div>    `).join("");
-         //const book new book wtf
+    }while()
   
-     //dhock.innerHTML = bookHTML;
-     bookDiv.innerHTML += bookHTML;//what the fuck is map
-     
-     master.appendChild(bookDiv);
-    
-event.preventDefault();
         }
      /*
         //bookDiv.id = `book-${index}`;
