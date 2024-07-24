@@ -180,39 +180,7 @@ body{
     <script>
     
         let COUNTERTHATIDK = 0;
-        function book(email,title,year,shortDescription,author)
-
-        {
-            this.email = titlez.value
-            this.title = email.value ;
-            this.year = yearz.value ;
-            this.shortDescription =   shortD.value ;
-            this.author = author.value;
-/*
-
-  titlez.value ="";
-        email.value = "";
-        yearz.value = "";
-        shortD.value = "";
-        author.value = "";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
-
-
-        }
+        
         console.log("sick")
       const erased = document.getElementById("Erased");
         const dhock = document.getElementById("dhock");
@@ -375,18 +343,43 @@ function getHtml()
 */
 
 function displayBooks(){
+
+
+    function book(email,title,year,shortDescription,author)
+
+        {
+            this.email = email;
+            this.title = titlez.value;
+            this.year = yearz.value ;
+            this.shortDescription =   shortD.value ;
+            this.author = author.value;
+/*
+
+  titlez.value ="";
+        email.value = "";
+        yearz.value = "";
+        shortD.value = "";
+        author.value = "";
+
+
+*/
+
+
+        }
     const master = document.getElementById("master");
-    let as = book(email,title,year,shortDescription,author);//waitzz
+    let as = new book(emailz.value,title,year,shortDescription,author);//waitzz
     event.preventDefault();
+    console.log(as.email);  
     console.log("i am gay");
 master.innerHTML = '';
     //array.forEach(( index) => {
        const bookDiv = document.createElement("div");
+      // book();
         //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
-   //
+   //book();
     //   bookDiv = '';
     bookHTML = array.map((as, index) => 
-
+//div what a fucking pussy you are you should kill urself
 
         `   <div>
             <h2>${as.email}d</h2>
@@ -396,11 +389,11 @@ master.innerHTML = '';
             <p>Author: ${as.shortDescription}</p>
             <p>ID${index}</p>
             <button id="Erased" onclick="Erasedz()">ERASE</button>
-        </div>    `)
+        </div>    `).join("");
          //const book new book wtf
   
      //dhock.innerHTML = bookHTML;
-     bookDiv.innerHTML = bookHTML;//what the fuck is map
+     bookDiv.innerHTML += bookHTML;//what the fuck is map
      master.appendChild(bookDiv);
 event.preventDefault();
         }
