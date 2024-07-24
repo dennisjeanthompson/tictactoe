@@ -215,16 +215,42 @@ function displayBooks(book)
     array.push(book)
 }
 function Erasedz()
-{ event.preventDefault();
-    for(let i =  1 ; i <=  array.length; i++)
+{ 
+    console.log(array.length +" array leng")
+    
+    let zing = false;
+do{  doIt();
+    event.preventDefault();}while(zing===false)
+
+
+
+
+ function doIt()
+ { event.preventDefault();
+    for( i =  1 ; i <=  array.length; i++)
     {
-        if(COUNTERTHATIDK === i)
+       // j = 1 ;
+        for(let j = 1 ; j < i ; j ++)
         {
-            bookDiv.innerHTML = `outoforder`;
-            event.preventDefault();
+            console.log(j);
+            if(COUNTERTHATIDK === j)
+            {
+             console.log(array.length   +   " array legth what the heck");
+                bookDiv.innerHTML = `outoforder`;
+             zing = true;
+                event.preventDefault();
+                //what do we do know 
+            }
         }
+       
 
     }
+ }
+       
+
+
+   // }while(zing == false)
+  
 
 }
 function uploadD()
