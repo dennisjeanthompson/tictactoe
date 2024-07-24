@@ -177,7 +177,7 @@ body{
 
     
     <script>
-    let bookDiv = "";
+    
         let COUNTERTHATIDK = 0;
         function book(email,title,year,shortDescription,author)
 
@@ -367,11 +367,11 @@ function displayBooks(){
     console.log("i am gay");
  //dhock.innerHTML = '';
     //array.forEach(( index) => {
-        bookDiv = document.createElement(`div${COUNTERTHATIDK++}`);
+       let bookDiv = document.createElement(`div`);
         //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
-     let bookHTML = '';
+      bookDiv = '';
      array.forEach((book, index) => {
-        bookHTML += `   <div>
+        bookDiv += `   <div>
             <h2>${book.email}</h2>
             <p>Title: ${book.title}</p>
             <p>Year: ${book.year}</p> 
