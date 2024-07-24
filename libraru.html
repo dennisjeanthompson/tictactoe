@@ -126,7 +126,8 @@ body{
         <button  onclick="openDialogz()">open Dialog</button>   
 <form>
 <input type="text" placeholder="Enter Book Name">
-<div id="dhock">lonely</div>    
+<div id ="master">    
+<div id="dhock">lonely</div>   </div> 
 </form>
    
  
@@ -156,7 +157,7 @@ body{
 
    
      
-        <dialog id="itself"><p id = "p"> this is dialo  g </p>
+        <dialog id="itself"><p id = "p"> this is dialog </p>
     <form>
    
     <input type ='text' placeholder="Enter your email" id="email" >
@@ -184,7 +185,7 @@ body{
         {
             this.email = titlez.value
             this.title = email.value ;
-            this.year = shortD.value ;
+            this.year = yearz.value ;
             this.shortDescription =   shortD.value ;
             this.author = author.value;
 /*
@@ -240,7 +241,7 @@ function displayBooks(book)
 }
 function Erasedz()
 { 
-    console.log(array.length +" array leng")
+    console.log(array.length +   " array length ")
 
     let saz  = ``;
     for(let i = 0; i < array.length; i++)
@@ -362,29 +363,45 @@ function getHtml()
 {
 
 }
+/*
+
+  titlez.value ="";
+        email.value = "";
+        yearz.value = "";
+        shortD.value = "";
+        author.value = "";
+
+
+*/
 
 function displayBooks(){
+    const master = document.getElementById("master");
+    let as = book(email,title,year,shortDescription,author);//waitzz
     event.preventDefault();
     console.log("i am gay");
-dhock.innerHTML = '';
+master.innerHTML = '';
     //array.forEach(( index) => {
-       let bookDiv = document.createElement(`div`);
+       const bookDiv = document.createElement("div");
         //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
-      bookDiv = '';
-     array.forEach((book, index) => {
-        bookDiv += `   <div>
-            <h2>${book.email}</h2>
-            <p>Title: ${book.title}</p>
-            <p>Year: ${book.year}</p> 
-            <p>Author: ${book.authorBook}</p>;
-            <p>Author: ${book.shortDescription}</p>
+   //
+    //   bookDiv = '';
+    bookHTML = array.map((as, index) => 
+
+
+        `   <div>
+            <h2>${as.email}d</h2>
+            <p>Title: ${as.title}</p>
+            <p>Year: ${as.year}</p> 
+            <p>Author: ${as.authorBook}</p>;
+            <p>Author: ${as.shortDescription}</p>
             <p>ID${index}</p>
             <button id="Erased" onclick="Erasedz()">ERASE</button>
-        </div>    `
+        </div>    `)
          //const book new book wtf
-     })
+  
      //dhock.innerHTML = bookHTML;
-     dhock.appendChild(bookDiv);
+     bookDiv.innerHTML = bookHTML;//what the fuck is map
+     master.appendChild(bookDiv);
 event.preventDefault();
         }
      /*
