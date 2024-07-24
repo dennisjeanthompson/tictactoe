@@ -177,6 +177,8 @@ body{
 
     
     <script>
+    let bookDiv = "";
+        let COUNTERTHATIDK = 0;
         function book(email,title,year,shortDescription,author)
 
         {
@@ -187,7 +189,7 @@ body{
             this.author = author;
 
         }
-      
+      const erased = document.getElementById("Erased");
         const dhock = document.getElementById("dhock");
         const email= document.getElementById("email");
         const titlez = document.getElementById("title");
@@ -212,7 +214,19 @@ function displayBooks(book)
 {
     array.push(book)
 }
+function Erasedz()
+{ event.preventDefault();
+    for(let i =  1 ; i <=  array.length; i++)
+    {
+        if(COUNTERTHATIDK === i)
+        {
+            bookDiv.innerHTML = `outoforder`;
+            event.preventDefault();
+        }
 
+    }
+
+}
 function uploadD()
 {
     let emailz = email.value;
@@ -220,6 +234,7 @@ function uploadD()
    let title = titlez.value;
     let year = yearz.value;
     let shortDescription = shortD.value;
+    
 
 //array.push(emailz);
 //array.push(titlez);
@@ -281,13 +296,17 @@ function AddBook(nameBook)
     //console.log(array);
 }
 
+function getHtml()
+{
 
+}
 
 function displayBooks(){
     console.log("i am gay");
  //dhock.innerHTML = '';
     //array.forEach(( index) => {
-        const bookDiv = document.createElement("div");
+        bookDiv = document.createElement(`div${COUNTERTHATIDK++}`);
+        //console.log(" I do wanna fuck you in the ass but my ass is in silly mode right know");
      
         //bookDiv.id = `book-${index}`;
         bookDiv.innerHTML = `
@@ -295,9 +314,15 @@ function displayBooks(){
             <p>Title: ${titlez.value}</p>
             <p>Year: ${yearz.value}</p> 
             <p>Author: ${author.value}</p>;
-            <p>Author: ${shortD.value}</p>`
+            <p>Author: ${shortD.value}</p>
+            <p>ID${COUNTERTHATIDK}</p>
+            <button id="Erased" onclick="Erasedz()">ERASE</button>`
             array.push(bookDiv);
+            //how do  we do this 
+            console.log(array);
+            
             dhock.appendChild(bookDiv);
+            console.log(COUNTERTHATIDK);
             event.preventDefault();
 }
 //)}
@@ -317,7 +342,8 @@ function erase()
 
   event.preventDefault();
     }
-   
+    alert("empty cant erase")
+    event.preventDefault();
 }
 
 //displayBooks();
@@ -341,7 +367,7 @@ function openDialogzs()
 function openDialogz()
 {
     const dialog =document.getElementById("itself");
-    dialog.showModal();
+    dialog.showModal(); 
     dialog.style.display="block";
     event.preventDefault();
 }
