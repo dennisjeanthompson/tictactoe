@@ -165,7 +165,7 @@ body{
     <input  type ="text" placeholder="Year" id="year">
     <input  type ="text" placeholder="Short Description" id="shortD">
     <input type="text" placeholder="Author" id="author">
-    <button  id="sub" onclick="displayBooks()">SUBMIT</button> 
+    <button  id="sub" onclick="displayBooks()" onclick= "id++" >SUBMIT </button> 
     <button onclick="closeDialogz()">close</button>  
     <button onclick="erase()">erase</button>
             
@@ -211,14 +211,18 @@ function Erasedz()
 { 
     console.log(array.length +   " array length ")
 
-    let saz  = ``;
-    for(let i = 0; i < array.length; i++)
+    let saz  = [];
+    for(let i = 1; i <= array.length-1; i++)
     {
 
-        saz += array[i];
+        //saz += array[i];
+      saz.push(array[i])
     }
-    console.log(saz + "val")
-console.log(array);
+    console.log("========================================")
+    console.log(saz[1-1])
+  // saz[1].pop();
+    console.log("========================================")
+
 event.preventDefault();
 
 
@@ -365,6 +369,7 @@ function displayBooks(){
 */
 
 
+
         }
     const master = document.getElementById("master");
 let as = new book(email.value,title,year,shortDescription,author);//waitzz
@@ -382,7 +387,7 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
         const bookDiv = document.createElement("div");
         const shomaw = document.createElement("div");
         bookHTML = ""; 
-        array.forEach((book, index) =>
+        array.forEach(function(book,index )
         { 
             bookHTML += `<div>
                     <h2>${as.email}d</h2>
@@ -392,16 +397,20 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
                     <p>Author: ${as.shortDescription}</p>
                     <p>ID${index}</p>
                     <button id="Erased" onclick="Erasedz()">ERASE</button>
-                </div>`; console.log(bookHTML);
+                </div>`; 
             });
                  //const book new book wtf
           //array.push(bookHTML);
            ///  dhock.innerHTML  += bookHTML;
            
-           array.push(bookHTML);
+          // 
             bookDiv.innerHTML = bookHTML;//what the fuck is map
           //s   dhock.appendChild(bookDiv);s
              dhock.appendChild(bookDiv);
+             array.push(bookHTML);
+             //console.log("==========================================")
+             //console.log(array)
+            // console.log("==========================================")  
         //     array.push(bookDiv);
            //  shomaw.appendChild(bookDiv);
             zeus =false;
@@ -481,7 +490,7 @@ function closeDialogz()
     //dialog.style.display="none";
     event.preventDefault();
     dialog.close();
-   
+   //COFFEEE IS THE KEY I WISH I HAD AI
 }
 function display()
 {
