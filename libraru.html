@@ -219,7 +219,7 @@ function Erasedz()
       saz.push(array[i])
     }
     console.log("========================================")
-    console.log(saz[1-1])
+    console.log(saz[1])
   // saz[1].pop();
     console.log("========================================")
 
@@ -387,6 +387,20 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
         const bookDiv = document.createElement("div");
         const shomaw = document.createElement("div");
         bookHTML = ""; 
+        // im thinking what if i put this shit in a string f
+        bookHTML += `<div>
+            <h2>${as.email}d</h2>
+            <p>Title: ${as.title}</p>
+            <p>Year: ${as.year}</p> 
+            <p>Author: ${as.author}</p>;
+            <p>Author: ${as.shortDescription}</p>
+            <p>ID${index}</p>
+            <button id="Erased" onclick="Erasedz()">ERASE</button>
+        </div>`; 
+        bookDiv.innerHTML = bookHTML;
+array.push(bookDiv.innerHTML);
+
+
         array.forEach(function(book,index )
         { 
             bookHTML += `<div>
