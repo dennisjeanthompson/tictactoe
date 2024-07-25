@@ -382,7 +382,7 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
         const bookDiv = document.createElement("div");
         const shomaw = document.createElement("div");
         bookHTML = ""; 
-        array.forEach((as, index) =>
+        array.forEach((book, index) =>
         { 
             bookHTML += `<div>
                     <h2>${as.email}d</h2>
@@ -392,14 +392,17 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
                     <p>Author: ${as.shortDescription}</p>
                     <p>ID${index}</p>
                     <button id="Erased" onclick="Erasedz()">ERASE</button>
-                </div>`; 
+                </div>`; console.log(bookHTML);
             });
                  //const book new book wtf
-          array.push(bookHTML);
+          //array.push(bookHTML);
            ///  dhock.innerHTML  += bookHTML;
+           
+           array.push(bookHTML);
             bookDiv.innerHTML = bookHTML;//what the fuck is map
           //s   dhock.appendChild(bookDiv);s
              dhock.appendChild(bookDiv);
+        //     array.push(bookDiv);
            //  shomaw.appendChild(bookDiv);
             zeus =false;
         event.preventDefault();
