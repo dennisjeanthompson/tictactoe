@@ -394,13 +394,21 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
             <p>Year: ${as.year}</p> 
             <p>Author: ${as.author}</p>;
             <p>Author: ${as.shortDescription}</p>
-            <p>ID${index}</p>
+           
             <button id="Erased" onclick="Erasedz()">ERASE</button>
         </div>`; 
         bookDiv.innerHTML = bookHTML;
 array.push(bookDiv.innerHTML);
 
+array.forEach(function(book,index )
+{
 
+
+    dhock.innerHTML  += book;
+
+
+})
+/*
         array.forEach(function(book,index )
         { 
             bookHTML += `<div>
@@ -412,13 +420,13 @@ array.push(bookDiv.innerHTML);
                     <p>ID${index}</p>
                     <button id="Erased" onclick="Erasedz()">ERASE</button>
                 </div>`; 
-            });
+            }); */
                  //const book new book wtf
           //array.push(bookHTML);
            ///  dhock.innerHTML  += bookHTML;
            
           // 
-            bookDiv.innerHTML = bookHTML;//what the fuck is map
+         //   bookDiv.innerHTML = bookHTML;//what the fuck is map
           //s   dhock.appendChild(bookDiv);s
              dhock.appendChild(bookDiv);
              array.push(bookHTML);
