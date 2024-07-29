@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <form>
+            <input type="text" id="author">
+            <input type="text" id="title">
+            <input type="text" id="genre">
+            <input type="submit" onclick="book()">
+        </form>
+        <div id="display">
+
+        </div>
+    </div>
+    <script>
+        let array = []
+        let array1= []
+
+        function book (author,title,genre)
+        {
+            const display = document.getElementById("display");
+            let author1 = document.getElementById("author");
+            let title1 = document.getElementById("title");
+            let genre1 = document.getElementById("genre");
+            this.author = author1.value;
+            this.title = title1.value;
+            this.genre = genre1.value;
+            const dos = document.createElement("div");
+            array.push([this.author,this.title,this.genre])
+
+            let zoomHTML= ''
+            array.forEach(function(value,index ){
+                zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index} </div>
+            <button class="removeutton" datandex="${index}">rem</button>`;
+
+                const mall = document.getElementById("mall");
+               
+                
+            })
+
+            dos.innerHTML += zoomHTML
+            display.appendChild(dos)
+            event.preventDefault();
+        }
+        document.getElementById("display").addEventListener("click", function(event) {
+            if (event.target && event.target.classList.contains("removeutton")) {
+                let index = event.target.getAttribute("datandex");
+                remove(index);
+            }
+        });
+        function remove(index) 
+        {
+            array.splice(index, 1);
+            displayBooks();
+        }
+
+        function displayBooks() 
+        {
+            const display = document.getElementById("display");
+            display.innerHTML = '';
+            array.forEach(function(value,index ){
+                let zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index} </div><button onclick="remove(${index})">rem</button>`;
+                const dos = document.createElement("div");
+                dos.innerHTML += zoomHTML;
+                display.appendChild(dos);
+            })
+        }
+    </script>
+</body>
+</html>

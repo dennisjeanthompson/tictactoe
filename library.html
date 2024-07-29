@@ -50,23 +50,24 @@ let zoomHTML= ''
 array.forEach(function(value,index ){
 
 
-    zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index} </div><button id="mall"">rem</button>`;
-
-    mall.addEventListener("click",(index)=>{
-for(let i =  0 ; i< array.length; i++)
-{
-    if(i === index)
-    {
-        console.log("fuc you")
-
-    }
-
-}
-    })
+    zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index} </div>
+    <button class="but" datandex="${index}">rem</button>`;
+  
+   
 }
 )
 
-
+dos.innerHTML += zoomHTML
+display.appendChild(dos)
+event.preventDefault();
+document.getElementById("display").addEventListener("click", function(event) {
+    if(event.target&&event.target.classList.contains("but"))
+    {
+        let index = event.target.getAttribute("datandex")
+        remove(index);
+    }
+    
+})
     /*
     for(let i =  1 ; i<= array.length; i++)
 
@@ -82,8 +83,7 @@ for(let i =  0 ; i< array.length; i++)
 
 
 //actually it is helpful learning dsa will help you a lot!!!
-dos.innerHTML += zoomHTML
-display.appendChild(dos)
+
 //console.log(zoom)
 //bHTML = `<div id="bitclover"> ${this.author}</div> <div>${this.title}</div><div> ${this.genre}</div><button>s</button>`
 
@@ -98,7 +98,7 @@ display.appendChild(dos)
 //console.log("array==================2")
 //console.log(array[0])
 //console.log("array==================2")
-//console.log("============== =====");
+//console.log("============== =====");  
 //console.log(array[0][0])
 //console.log("===================");
 // I have to tell you odin is hard as hell like it is really hard 
@@ -116,6 +116,14 @@ console.log(this.author)
 array.forEach(function(book,index){
     console.log(book.author + " " + book.title + " " + book.genre);
  
+})
+document.getElementById("display").addEventListener("click", function(event) {
+    if(event.target&&event.target.classList.contains("but"))
+    {
+        let index = event.target.getAttribute("datandex")
+        remove(index);
+    }
+    
 })
 //progra
     </script>
