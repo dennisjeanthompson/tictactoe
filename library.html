@@ -37,19 +37,21 @@ this.genre = genre1.value;
 const dos = document.createElement("div");
 array.push([this.author,this.title,this.genre])
 
-let zoom= ''
+let zoomHTML= ''
 //how do you print a 2d array here weird so really
 array.forEach(function(value,index ){
 
 
-zoom = value + " dif " + index ;
+zoomHTML = `<div> ${value.author}  </div> <div>${value.title}</div> ${index} `;
 
 
 
 
 }
 )
-console.log(zoom)
+dos.innerHTML += zoomHTML
+display.appendChild(dos)
+//console.log(zoom)
 //bHTML = `<div id="bitclover"> ${this.author}</div> <div>${this.title}</div><div> ${this.genre}</div><button>s</button>`
 
 
