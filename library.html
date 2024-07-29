@@ -6,25 +6,44 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <form>
+            <input type="text" id="author">
+            <input type="text" id="title">
+            <input type="text" id="genre">
+            <input type="submit" onclick="book()">
+        </form>
+    </div>
     <script>
         let array = []
+       // const author = document.getElementById("author");
+      //  const title = document.getElementById("title");
+       // const genre = document.getElementById("genre");
 
 
     function book (author,title,genre)
     {
-this.author = author;
-this.title = title;
-this.genre = genre;
+        let author1 = document.getElementById("author");
+        let title1 = document.getElementById("title");
+        let genre1 = document.getElementById("genre");
+this.author = author1;
+this.title = title1;
+this.genre = genre1;
+array.push([this.author,this.title,this.genre])
+console.log(author1.value + " " + title1.value + " " + genre1.value);
+event.preventDefault();
     }
+ 
+console.log(this.author)
+//const book1 =  new book("author1","title1","genre1");
 
-const book1 =  new book("author1","title1","genre1");
-
-array.push(book1);
+//array.push(book1);
 
 array.forEach(function(book,index){
     console.log(book.author + " " + book.title + " " + book.genre);
  
 })
+//progra
     </script>
 </body>
 </html>
