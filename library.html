@@ -20,17 +20,24 @@
     <script>
         let array = []
         let array1= []
+        
+        
        // const author = document.getElementById("author");
       //  const title = document.getElementById("title");
        // const genre = document.getElementById("genre");
 
 
     function book (author,title,genre)
-    {const display = document.getElementById("display");
+
+    {
+        
+        
+        const display = document.getElementById("display");
     //const child = document.getElementById("child");
         let author1 = document.getElementById("author");
         let title1 = document.getElementById("title");
         let genre1 = document.getElementById("genre");
+        
 this.author = author1.value;
 this.title = title1.value;
 this.genre = genre1.value;
@@ -43,15 +50,23 @@ let zoomHTML= ''
 array.forEach(function(value,index ){
 
 
-    zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index} </div><button onclick="remove()">rem</button>`;
-function remove(){}
+    zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index} </div><button id="mall"">rem</button>`;
+
+    mall.addEventListener("click",(index)=>{
+for(let i =  0 ; i< array.length; i++)
+{
+    if(i === index)
+    {
+        console.log("fuc you")
+
+    }
+
+}
+    })
 }
 )
-function removes()
-{
-}
-function remove() 
-{
+
+
     /*
     for(let i =  1 ; i<= array.length; i++)
 
@@ -63,7 +78,6 @@ function remove()
         }
     }
         */
-}
 
 
 
