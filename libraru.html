@@ -165,11 +165,14 @@ body{
     <input  type ="text" placeholder="Year" id="year">
     <input  type ="text" placeholder="Short Description" id="shortD">
     <input type="text" placeholder="Author" id="author">
-    <button  id="sub" onclick="displayBooks()" onclick= "id++" >SUBMIT </button> 
-    <button onclick="closeDialogz()">close</button>  
-    <button onclick="erase()">erase</button>
-            
-    </form>
+    <button  id="sub" onclick="displayBooks()"  >SUBMIT </button> 
+<button onclick = "closeDialogz()" > 
+
+ close
+
+</button>  
+<button onclick="erase()">erase</button>
+</form>
        
 
 
@@ -203,10 +206,10 @@ let  title = ''
 let  year = ''; 
 let shortDescription = '';
 let counter = 0;
-function displayBooks(book)
-{
-    array.push(book);
-}
+//function displayBooks(book)
+//{
+ //   array.push(book);
+//}
 function Erasedz()
 { 
     console.log(array.length +   " array length ")
@@ -228,7 +231,7 @@ event.preventDefault();
 
     /*
     let zing = false;
-do{  doIt();
+do{  doIt(); 
     event.preventDefault();}while(zing===false)
 */
 
@@ -371,6 +374,8 @@ function displayBooks(){
 
 
         }
+
+        const book1 = new book()
     const master = document.getElementById("master");
 let as = new book(email.value,title,year,shortDescription,author);//waitzz
     event.preventDefault();
@@ -399,7 +404,14 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
         </div>`; 
         bookDiv.innerHTML = bookHTML;
 array.push(bookDiv.innerHTML);
-
+let zink =  ''
+for(let zuz of array)
+{
+ zink += zuz;
+    
+}
+console.log(zink);
+console.log(array);
 array.forEach(function(book,index )
 {
 

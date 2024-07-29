@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let array = []
+
+
+    function book (author,title,genre)
+    {
+this.author = author;
+this.title = title;
+this.genre = genre;
+    }
+
+const book1 =  new book("author1","title1","genre1");
+
+array.push(book1);
+
+array.forEach(function(book,index){
+    console.log(book.author + " " + book.title + " " + book.genre);
+ 
+})
+    </script>
+</body>
+</html>

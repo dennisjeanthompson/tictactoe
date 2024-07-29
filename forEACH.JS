@@ -14,7 +14,7 @@ numbers.forEach(function(number, index) {
  asd +=`Index ${index}: ${number}`;
 });
 console.log(asd);
-for (let i = 0; i < 999999; i++)
+for (let i = 0; i < 999999;  i++)
 {
     console.log(i)
 }
