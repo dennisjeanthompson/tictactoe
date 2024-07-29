@@ -12,4 +12,30 @@ function makeAdding (firstNumber) {
   
   const add5 = makeAdding(5);
   console.log(add5)
-  console.log(add5(2)) // logs 7
+  console.log(add5(2)) // logs 7s
+
+function eatMe(add)
+{
+  const second = add
+  
+  return function ded(secondx) {
+    const sencondn = secondx
+    return second + sencondn 
+  }
+
+
+}
+
+const addz = eatMe(4)
+console.log(addz(2));//6~
+
+const add = (numbers) => {
+  this.numbers = numbers ;
+  return numbers
+
+}
+
+console.log(add("pussy"));
+
+
+  
