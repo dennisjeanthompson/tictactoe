@@ -38,13 +38,21 @@ const dos = document.createElement("div");
 array.push([this.author,this.title,this.genre])
 
 let zoomHTML= ''
+//let index=
 //how do you print a 2d array here weird so really
 array.forEach(function(value,index ){
 
 
-zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index + 1} </div><button onclick="remove(${index + 1})">remove    </button> <div></div>`;
-function remove(index)
+    zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index} </div><button onclick="remove()">rem</button>`;
+function remove(){}
+}
+)
+function removes()
 {
+}
+function remove() 
+{
+    /*
     for(let i =  1 ; i<= array.length; i++)
 
     {
@@ -54,12 +62,11 @@ function remove(index)
 
         }
     }
+        */
 }
 
 
 
-}
-)
 //actually it is helpful learning dsa will help you a lot!!!
 dos.innerHTML += zoomHTML
 display.appendChild(dos)
