@@ -42,13 +42,25 @@ let zoomHTML= ''
 array.forEach(function(value,index ){
 
 
-zoomHTML = `<div> ${value.author}  </div> <div>${value.title}</div> ${index} `;
+zoomHTML = `<div> ${value[0]}  </div> <div>${value[1]}</div> ${value[2]} <div>  ${index + 1} </div><button onclick="remove(${index + 1})">remove    </button> <div></div>`;
+function remove(index)
+{
+    for(let i =  1 ; i<= array.length; i++)
 
+    {
+        if(i === index)
+        {
+  console.log("fuck you ")
+
+        }
+    }
+}
 
 
 
 }
 )
+//actually it is helpful learning dsa will help you a lot!!!
 dos.innerHTML += zoomHTML
 display.appendChild(dos)
 //console.log(zoom)
