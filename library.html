@@ -13,24 +13,63 @@
             <input type="text" id="genre">
             <input type="submit" onclick="book()">
         </form>
+        <div id="display">
+
+        </div>
     </div>
     <script>
         let array = []
+        let array1= []
        // const author = document.getElementById("author");
       //  const title = document.getElementById("title");
        // const genre = document.getElementById("genre");
 
 
     function book (author,title,genre)
-    {
+    {const display = document.getElementById("display");
+    //const child = document.getElementById("child");
         let author1 = document.getElementById("author");
         let title1 = document.getElementById("title");
         let genre1 = document.getElementById("genre");
-this.author = author1;
-this.title = title1;
-this.genre = genre1;
+this.author = author1.value;
+this.title = title1.value;
+this.genre = genre1.value;
+const dos = document.createElement("div");
 array.push([this.author,this.title,this.genre])
-console.log(author1.value + " " + title1.value + " " + genre1.value);
+
+let zoom= ''
+//how do you print a 2d array here weird so really
+array.forEach(function(value,index ){
+
+
+zoom = value + " dif " + index ;
+
+
+
+
+}
+)
+console.log(zoom)
+//bHTML = `<div id="bitclover"> ${this.author}</div> <div>${this.title}</div><div> ${this.genre}</div><button>s</button>`
+
+
+
+
+   // dos.innerHTML = bHTML;
+  //  display.appendChild(dos);
+//array[0][0]  = dos;
+//for (let i = 0 ;i <)
+//array[0]  = dos;
+//console.log("array==================2")
+//console.log(array[0])
+//console.log("array==================2")
+//console.log("============== =====");
+//console.log(array[0][0])
+//console.log("===================");
+// I have to tell you odin is hard as hell like it is really hard 
+//display.innerHTML += `<div> ${array[0][0]}</div> <div>${array[0][1]}</div><div> ${array[0][2]}</div><button >asda </button>`
+
+//console.log(author1.value + " " + title1.value + " " + genre1.value);
 event.preventDefault();
     }
  

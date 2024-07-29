@@ -351,7 +351,7 @@ function getHtml()
 
 function displayBooks(){
 
-
+event.preventDefault();
     function book(email,title,year,shortDescription,author)
 
         {
@@ -359,7 +359,7 @@ function displayBooks(){
             this.title = titlez.value;
             this.year = yearz.value ;
             this.shortDescription =   shortD.value ;
-            this.author = author.value;
+          //  this.author = author.value;
 /*
 
   titlez.value ="";
@@ -391,9 +391,9 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
 //do{
         const bookDiv = document.createElement("div");
         const shomaw = document.createElement("div");
-        bookHTML = ""; 
+        bookaHTML = ""; 
         // im thinking what if i put this shit in a string f
-        bookHTML += `<div>
+        bookaHTML += `<div>
             <h2>${as.email}d</h2>
             <p>Title: ${as.title}</p>
             <p>Year: ${as.year}</p> 
@@ -402,7 +402,7 @@ let as = new book(email.value,title,year,shortDescription,author);//waitzz
            
             <button id="Erased" onclick="Erasedz()">ERASE</button>
         </div>`; 
-        bookDiv.innerHTML = bookHTML;
+        bookDiv.innerHTML = bookaHTML;
 array.push(bookDiv.innerHTML);
 let zink =  ''
 for(let zuz of array)
