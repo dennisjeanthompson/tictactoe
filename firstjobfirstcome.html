@@ -13,7 +13,8 @@ let array =[];
       for(let i = 0; i < n ; i++)
       {
         let input = prompt("P"+(i + 1)+":");
-        array.push([i+1,parseInt(input)])
+    //    array.push([i+1,parseInt(input)])
+    array[i][0] = input;
       }
         for(let i = 0;i < n ;i++)
         {
@@ -21,21 +22,39 @@ let array =[];
             
             let arrivalTime = prompt("Enter arrival time")
            // array.push([i,3]);
-           array[i,3] = arrivalTime;
-let zing ;
+           array[i][2] = arrivalTime;
+
 
         }
         
 
-        /*
+        
         for(let i = 0;i < n ;i++)
         {
            
            
             let burstTime = prompt("Enter burst time")
+array[i][2] = burstTime;
+        }
+        function displayArrivalTime()
+        {
+            for(let i = 0; i < array.length ; i ++)
+            {
+                console.log(array[i][2])
+
+            }
 
         }
-            */
+        function displayBurstTime()
+        {
+            for(let i = 0; i < array.length ; i ++)
+            {
+                console.log(array[i][2])
+
+            }
+
+        }
+            
 
 
      </script>
