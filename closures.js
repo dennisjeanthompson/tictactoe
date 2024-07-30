@@ -37,5 +37,5 @@ const add = (numbers) => {
 
 console.log(add("pussy"));
 
-
+console.log("die mf die")
   
