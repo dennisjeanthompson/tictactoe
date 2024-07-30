@@ -10,21 +10,24 @@
      <script>
 let array =[];
         let n  = prompt("Enter number of process")
-        for(let i = 0;i < n ;i++)
-        {
-           
-            let priority = prompt("Enter priority")
-           
-
-        }
+      for(let i = 0; i < n ; i++)
+      {
+        let input = prompt("P"+(i + 1)+":");
+        array.push([i+1,parseInt(input)])
+      }
         for(let i = 0;i < n ;i++)
         {
            
             
             let arrivalTime = prompt("Enter arrival time")
-          
+           // array.push([i,3]);
+           array[i,3] = arrivalTime;
+let zing ;
 
         }
+        
+
+        /*
         for(let i = 0;i < n ;i++)
         {
            
@@ -32,6 +35,7 @@ let array =[];
             let burstTime = prompt("Enter burst time")
 
         }
+            */
 
 
      </script>
