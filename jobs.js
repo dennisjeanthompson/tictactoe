@@ -12,7 +12,7 @@ A.push([i+1, parseInt(input)]);
 for (let i = 0; i < n; i++) {
 index = i;
 for (let j = i + 1; j < n; j++) {
-if (A[j][1] < A[index][1]) {
+if (A[j][1] < A[index][1]) { // what value are this two
 index = j;
 }
 }
