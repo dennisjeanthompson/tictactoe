@@ -10,25 +10,30 @@
      <script>
 let array =[];
         let n  = prompt("Enter number of process")
-      for(let i = 0; i < n ; i++)
-      {
-        let input = prompt("P"+(i + 1)+":");
-    //    array.push([i+1,parseInt(input)])
-    array[i][0] = input;
-      }
+    // for(let i = 0; i < n ; i++)
+    // {
+       // let input = prompt("P"+(i + 1)+":");
+       // array.push([i+1,parseInt(input)])
+ // array[i][0] = input;
+      //}
         for(let i = 0;i < n ;i++)
         {
            
-            
-            let arrivalTime = prompt("Enter arrival time")
-           // array.push([i,3]);
-           array[i][2] = arrivalTime;
+           let inputx = `P${i+1}:`;
+            let arrivalTime = prompt("Enter arrival time P"+(i+1)+":")
+           // let arrivalTimed = parseInt(arrivalTime);
+            let burstTime = prompt("Enter burst time P"+(i+1)+":")
+           // let burstTimed = parseInt(burstTime);
+           // array.push([i][0]);
+          // array[i][0] = inputx;
+           array.push([ inputx ,parseInt(arrivalTime),parseInt(burstTime)])
+          // array[i][2] = burstTimed;
 
 
         }
         
 
-        
+        /*
         for(let i = 0;i < n ;i++)
         {
            
@@ -54,7 +59,7 @@ array[i][2] = burstTime;
             }
 
         }
-            
+            */
 
 
      </script>
