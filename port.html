@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insane Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #2b1055, #7597de);
+            color: #fff;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-top: 100px;
+            position: relative;
+        }
+        
+        .glitch {
+            font-size: 4rem;
+            position: relative;
+            color: #fff;
+            animation: glitch 1.5s infinite;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-top: -20px;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .header-animations {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        #backgroundCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .particle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        section {
+            padding: 50px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            transform: scale(1);
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .project-card img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover img {
+            transform: rotate(10deg) scale(1.1);
+        }
+        
+        .about-animations .about-circle {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: floatAround 10s infinite ease-in-out;
+        }
+        
+        @keyframes floatAround {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(100px, 50px) scale(1.5);
+            }
+            100% {
+                transform: translate(-100px, -50px) scale(1);
+            }
+        }
+        
+        @keyframes glitch {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                text-shadow: 0 0 5px #fff, 5px 0 #ff00ff, -5px 0 #00ffff;
+                transform: translate(0, 0);
+            }
+            10%, 30%, 50%, 70%, 90% {
+                text-shadow: 0 0 20px #fff, 10px 0 #ff00ff, -10px 0 #00ffff;
+                transform: translate(2px, -2px);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .contact input, .contact textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        .contact button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #7597de;
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.5s;
+        }
+        
+        .contact button:hover {
+            background: #2b1055;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #111;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: #7597de;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="glitch">Your Name</h1>
+            <p class="tagline">Creative Developer & Designer</p>
+            <div class="header-animations">
+                <canvas id="backgroundCanvas"></canvas>
+                <div class="particle-container"></div>
+            </div>
+        </header>
+
+        <section class="about" id="about">
+            <h2>About Me</h2>
+            <p>I build digital experiences that make people say "Wow!"</p>
+            <div class="about-animations">
+                <div class="about-circle"></div>
+                <div class="about-circle"></div>
+                <div class="about-circle"></div>
+            </div>
+        </section>
+
+        <section class="projects" id="projects">
+            <h2>Projects</h2>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/600x400" alt="Project 1">
+                <h3>Project One</h3>
+                <p>An amazing project that does incredible things.</p>
+            </div>
+            <div class="project-card">
+                <img src="https://via.placeholder.com/600x400" alt="Project 2">
+                <h3>Project Two</h3>
+                <p>Another project that will blow your mind.</p>
+            </div>
+            <!-- More complex animations and elements -->
+            <div class="project-cards">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/600x400" alt="Project 3">
+                    <h3>Project Three</h3>
+                    <p>Another project that will blow your mind.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/600x400" alt="Project 4">
+                    <h3>Project Four</h3>
+                    <p>Another project that will blow your mind.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/600x400" alt="Project 5">
+                    <h3>Project Five</h3>
+                    <p>Another project that will blow your mind.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="email" name="email" placeholder="Your Email">
+                <textarea name="message" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script >document.addEventListener('DOMContentLoaded', function() {
+        // Canvas Background Animation
+        const canvas = document.getElementById('backgroundCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    
+        const particles = [];
+        const particleCount = 100;
+    
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    
+        function Particle() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+        }
+    
+        Particle.prototype.update = function() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x < 0 || this.x > canvas.width) this.speedX = -this.speedX;
+            if (this.y < 0 || this.y > canvas.height) this.speedY = -this.speedY;
+        };
+    
+        Particle.prototype.draw = function() {
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+        };
+    
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+    
+        animate();
+    
+        // Particle Explosion on Click
+        canvas.addEventListener('click', function(e) {
+            for (let i = 0; i < 30; i++) {
+                particles.push(new ParticleExplosion(e.clientX, e.clientY));
+            }
+        });
+    
+        function ParticleExplosion(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 5 + 1;
+            this.speedX = Math.random() * 3 - 1.5;
+            this.speedY = Math.random() * 3 - 1.5;
+            this.color = `rgba(255, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 0.8)`;
+            this.life = 100;
+        }
+    
+        ParticleExplosion.prototype.update = function() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            this.life -= 2;
+        };
+    
+        ParticleExplosion.prototype.draw = function() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+        };
+    
+        function animateExplosions() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach((particle, index) => {
+                particle.update();
+                particle.draw();
+                if (particle instanceof ParticleExplosion && particle.life <= 0) {
+                    particles.splice(index, 1);
+                }
+            });
+            requestAnimationFrame(animateExplosions);
+        }
+    
+        animateExplosions();
+    
+        // Scroll-triggered animations
+        const aboutSection = document.getElementById('about');
+        const projectSection = document.getElementById('projects');
+        const contactSection = document.getElementById('contact');
+    
+        window.addEventListener('scroll', function() {
+            const scrollPos = window.scrollY;
+            if (scrollPos > aboutSection.offsetTop - window.innerHeight / 2) {
+                aboutSection.classList.add('animate');
+            }
+            if (scrollPos > projectSection.offsetTop - window.innerHeight / 2) {
+                projectSection.classList.add('animate');
+            }
+            if (scrollPos > contactSection.offsetTop - window.innerHeight / 2) {
+                contactSection.classList.add('animate');
+            }
+        });
+    
+        // Infinite scrolling backgrounds
+        let scrollSpeed = 2;
+        let scrollPosition = 0;
+    
+        function infiniteScrollBackground() {
+            scrollPosition -= scrollSpeed;
+            document.body.style.backgroundPosition = scrollPosition + 'px 0';
+            requestAnimationFrame(infiniteScrollBackground);
+        }
+    
+        infiniteScrollBackground();
+    
+        // Hover effects with JavaScript
+        const projectCards = document.querySelectorAll('.project-card');
+    
+        projectCards.forEach(card => {
+            card.addEventListener('mouseover', function() {
+                const img = card.querySelector('img');
+                img.style.transform = 'rotate(20deg) scale(1.1)';
+            });
+    
+            card.addEventListener('mouseleave', function() {
+                const img = card.querySelector('img');
+                img.style.transform = 'rotate(0deg) scale(1)';
+            });
+        });
+    
+        // Complex form submission handling
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+    
+            if (!name || !email || !message) {
+                alert('Please fill out all fields.');
+                return;
+            }
+    
+            contactForm.reset();
+            alert('Thank you for your message! We will get back to you shortly.');
+        });
+    
+        // Add more interactive and complex animations here
+        // For example, a parallax effect
+        const parallaxElements = document.querySelectorAll('.parallax');
+    
+        window.addEventListener('scroll', function() {
+            let scrollPosition = window.pageYOffset;
+    
+            parallaxElements.forEach(function(element) {
+                let depth = element.dataset.depth;
+                let movement = -(scrollPosition * depth);
+                let translate3d = 'translate3d(0, ' + movement + 'px, 0)';
+    
+                element.style.transform = translate3d;
+            });
+        });
+    
+        // Circular moving elements
+        const aboutCircles = document.querySelectorAll('.about-circle');
+    
+        aboutCircles.forEach((circle, index) => {
+            let angle = 0;
+            const radius = 100 + index * 50;
+    
+            function moveCircle() {
+                angle += 0.01;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                circle.style.transform = `translate(${x}px, ${y}px)`;
+                requestAnimationFrame(moveCircle);
+            }
+    
+            moveCircle();
+        });
+    });
+    </script>
+</body>
+</html>

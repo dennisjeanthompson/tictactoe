@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #newbook_dialog {
+          
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            
+        }
+        
+    </style>
+</head>
+<button id="addbook" onclick="addBookToLibrary()">
+    AddBook
+</button>
+<button id="display" onclick="displayBooks()">
+    DisplayBooks
+</button>
+<button id="newbook" onclick="newBook()" >
+    NEW BOOK
+</button>
+<div id="display-div"></div>
+<dialog class="newbook_dialog" id="newbook_dialog">  
+<input id="author" type="text"/>
+<input id="title" type="text"/>
+<input id="numOfPages" type="text"/>  
+<button id="close" onclick="closeDialog()">Close</button>
+<button id="submit">Submit</button>
+</dialog>
+<div id="dispayN"></div>
+<body>
+   
+    <script>
+        const newB =document.getElementById("newbook");
+       
+        const displayN = document.getElementById("displayN");
+        const numberOfPages =document.getElementById("numOfPages");
+        const author = document.getElementById("author");
+        const title = document.getElementById("title");
+      const displayDiv= document.getElementById("display-div");
+        const myLibrary = [];
+
+        function Book(author,title,numOfPages) {
+          // the constructor...
+          this.author = author;
+          this.title = title;
+          this.numOfPages = numOfPages;
+        }
+        const ad = new Book("author","title",100)
+         Book("the goat","Niger in the black",1000)
+         
+        function addBookToLibrary() {
+          // do stuff here
+          let NameOfBook = prompt("Enter number of books")
+          NameOfBook.trim();
+          if(NameOfBook === "") return;
+         myLibrary.push(NameOfBook);
+        }
+        
+        console.log(myLibrary);
+        function displayBooks() {
+            for (let i = 0; i < myLibrary.length; i++) {
+                console.log(myLibrary[i]);
+                displayDiv.innerHTML += `<div>Book Name:${myLibrary[i]}   ID:${i+1} </div>`;
+            }
+        }
+        function newBook()
+        {
+            const displayX = document.getElementById("newbook_dialog");
+           // newB.addEventListener("click", ()=>{
+displayX.showModal();
+
+
+          //  })
+           
+
+        }
+        function closeDialog()
+        {
+            const displayX = document.getElementById("newbook_dialog");
+            event.preventDefault()
+            displayX.close();
+            
+
+        }
+        function submitBook()
+        {
+            const displayX = document.getElementById("newbook_dialog");
+            event.preventDefault()
+          
+        } 
+
+        
+    </script>
+</body>
+</html>
