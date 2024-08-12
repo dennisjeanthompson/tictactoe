@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #ecf0f1;
+            --text-color: #2c3e50;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: var(--secondary-color);
+        }
+
+        #display-div {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .book-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .book-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .remove-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .remove-btn:hover {
+            background-color: #c0392b;
+        }
+
+        #newbook_dialog {
+            border: none;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #newbook_dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #newbook_dialog input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Library</h1>
+        <div class="btn-group">
+            <button id="addbook" class="btn" onclick="newBook()">Add Book</button>
+            <button id="display" class="btn" onclick="displayBooks()">Display Books</button>
+        </div>
+        <div id="display-div"></div>
+        <dialog id="newbook_dialog">
+            <h2>Add New Book</h2>
+            <input id="author" type="text" placeholder="Author" required/>
+            <input id="title" type="text" placeholder="Title" required/>
+            <input id="numOfPages" type="number" placeholder="Number of Pages" required/>
+            <div class="btn-group">
+                <button id="submit" class="btn" onclick="submitBook()">Submit</button>
+                <button id="close" class="btn" onclick="closeDialog()">Close</button>
+            </div>
+        </dialog>
+    </div>
+
+    <script>
+        const displayDiv = document.getElementById("display-div");
+        const myLibrary = [];
+
+        class Book {
+            constructor(author, title, numberOfPages) {
+                this.author = author;
+                this.title = title;
+                this.numberOfPages = numberOfPages;
+            }
+        }
+
+        function newBook() {
+            document.getElementById("newbook_dialog").showModal();
+        }
+
+        function closeDialog() {
+            document.getElementById("newbook_dialog").close();
+        }
+
+        function submitBook() {
+            const authorInput = document.getElementById("author");
+            const titleInput = document.getElementById("title");
+            const pagesInput = document.getElementById("numOfPages");
+            
+            if (authorInput.value && titleInput.value && pagesInput.value) {
+                const newBook = new Book(authorInput.value, titleInput.value, pagesInput.value);
+                myLibrary.push(newBook);
+                
+                authorInput.value = '';
+                titleInput.value = '';
+                pagesInput.value = '';
+                
+                displayBooks();
+                closeDialog();
+            } else {
+                alert("Please fill in all fields");
+            }
+        }
+
+        function displayBooks() {
+            displayDiv.innerHTML = "";
+            myLibrary.forEach((book, index) => {
+                const bookCard = document.createElement('div');
+                bookCard.classList.add('book-card');
+                bookCard.innerHTML = `
+                    <h3>${book.title}</h3>
+                    <p><strong>Author:</strong> ${book.author}</p>
+                    <p><strong>Pages:</strong> ${book.numberOfPages}</p>
+                    <button class="remove-btn" onclick="removeBook(${index})">Remove</button>
+                `;
+                displayDiv.appendChild(bookCard);
+            });
+        }
+
+        function removeBook(index) {
+            myLibrary.splice(index, 1);
+            displayBooks();
+        }
+    </script>
+</body>
+</html>

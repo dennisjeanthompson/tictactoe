@@ -45,60 +45,39 @@
       const displayDiv= document.getElementById("display-div");
         const myLibrary = [];
 
-        function Book(author,title,numberOfPages) {
-          // the constructor...
-          const numberOfPagese =document.getElementById("numOfPages");
-          const authore = document.getElementById("author");
-          const titlee = document.getElementById("title");    
-          this.author = authore.value;
-          this.title = titlee.value;
-          this.numberOfPages = numberOfPagese.value;
+        function Book(author, title, numberOfPages) {
+            this.author = author;
+            this.title = title;
+            this.numberOfPages = numberOfPages;
         }
-        const ad = new Book("author","title",100)
-         Book("the goat","Niger in the black",1000)
+        //
+        // Book("the goat","Niger in the black",1000)
          
         function addBookToLibrary() {
-          // do stuff here
-          zeus = true;
-          let NameOfBook = prompt("Enter number of books")
-       //   NameOfBook.trim();
-          if(NameOfBook === "") return;
-         myLibrary.push([NameOfBook]);
+            let title = prompt("Enter book title");
+            if (title === "" || title === null) return;
+            let author = prompt("Enter author name");
+            let pages = prompt("Enter number of pages");
+            const newBook = new Book(author, title, pages);
+            myLibrary.push(newBook);
+            displayBooks(); // Add this line to update the display immediately
         }
         
         console.log(myLibrary);
 
-        function displayBooks(Books) {
-            const numberOfPagese =document.getElementById("numOfPages");
-            const authore = document.getElementById("author");
-            const titlee = document.getElementById("title");    
-
+        function displayBooks() {
             let bookListHTML = "";
-            //  console.log(Books.title
-
-    for(let i = 0 ;  i < myLibrary.length; i++)
-    {
-if(myLibrary[i][0].author == undefined || myLibrary[i][0].title == undefined )
-{
-        bookListHTML += `<div>Book Name:${myLibrary[i][0]}  ID:${i+1} </div>`
-        displayDiv.innerHTML = bookListHTML;
-    }
-
-    else{
-        bookListHTML += `<div>Book Name:${myLibrary[i][0].title} Author:${myLibrary[i][0].author} Library:${myLibrary[i][0].numberOfPages}   ID:${i+1} </div>`;
-
-        displayDiv.innerHTML = bookListHTML;
-    }
-}
-           
-           // for (let i = 0; i < myLibrary.length; i++) {
-               
-         //   }
-         
-
-          
-          
-
+            for (let i = 0; i < myLibrary.length; i++) {
+                const book = myLibrary[i];
+                if (typeof book === 'object' && book !== null) {
+                    bookListHTML += `<div>Book Name: ${book.title} Author: ${book.author} Pages: ${book.numberOfPages} ID: ${i+1}
+                        <button class="removeL" onclick="removeBook(${i})">REMOVE</button></div>`;
+                } else {
+                    bookListHTML += `<div>Book: ${book} ID: ${i+1}
+                        <button class="removeL" onclick="removeBook(${i})">REMOVE</button></div>`;
+                }
+            }
+            displayDiv.innerHTML = bookListHTML;
         }
           //  for (let i = 0; i < myLibrary.length; i++) {
                // console.log(myLibrary[i]);
@@ -117,62 +96,33 @@ displayX.showModal();
            
 
         }
-        function closeDialog()
-        {
+        function closeDialog() {
             const displayX = document.getElementById("newbook_dialog");
-            event.preventDefault()
             displayX.close();
-            
-
         }
         
         function removeBook(index)
         {
-            
-            for(let i =  0; i < myLibrary.length; i++)
-            {
-                if(i === myLibrary[index])
-                {
-                    myLibrary.splice(i,1);
-                    displayDiv.innerHTML =``;
-                }
-
-            }
-
+            myLibrary.splice(index, 1);
+    displayBooks(); //Rove the book from the array
+     
         }
-        function submitBook()
-        {
-            // const numberOfPages =document.getElementById("numOfPages");
-            //const author = document.getElementById("author");
-            //const title = document.getElementById("title");    const displayX = document.getElementById("newbook_dialog");
-            //console.log(author.value);
-            const newBook1 =new Book(author,title,numberOfPages);
-     console.log("==============================")
-            console.log(newBook1);     
-            console.log("==============================")
-            myLibrary.push([newBook1])
-            console.log(myLibrary[0][0]);
-            //console.log(myLibrary[1][0]);
-            const doc =document.createElement("div");
-            for(let i = 0 ; i < myLibrary.length; i++)
-            {
-                doc.innerHTML = `<div>Book Name:${myLibrary[i][0].title} BookAuthor:${myLibrary[i][0].author} NUmber of pages:${myLibrary[i][0].numberOfPages} ID:${i+1}<button id="removeL" onclick="removeBook(${i})"> REMOVE</button></div>`;
-            }
-            let innerHTML = doc.innerHTML ;
-            displayDiv.innerHTML += innerHTML;
-
-
-
-
-
-
-
-
-
-
-            event.preventDefault()
-          //never be late trust me dude what the fuck is going on here what the fuck comeon don't be ever late nigger be  that fucked up shit man  what the fuck are you doing right know you are kidding me right know wan't me to die and kil myself? nah bruh wouldn't let that happen 
-        } 
+        function submitBook() {
+            const authorInput = document.getElementById("author");
+            const titleInput = document.getElementById("title");
+            const pagesInput = document.getElementById("numOfPages");
+            
+            const newBook = new Book(authorInput.value, titleInput.value, pagesInput.value);
+            myLibrary.push(newBook);
+            
+            // Clear input fields
+            authorInput.value = '';
+            titleInput.value = '';
+            pagesInput.value = '';
+            
+            displayBooks();
+            closeDialog();
+        }
         
     </script>
 </body>
