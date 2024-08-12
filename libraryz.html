@@ -37,6 +37,7 @@
 <body>
    
     <script>
+        let zeus = false;
         const newB =document.getElementById("newbook");
        
         const displayN = document.getElementById("displayN");
@@ -58,6 +59,7 @@
          
         function addBookToLibrary() {
           // do stuff here
+          zeus = true;
           let NameOfBook = prompt("Enter number of books")
        //   NameOfBook.trim();
           if(NameOfBook === "") return;
@@ -72,11 +74,27 @@
             const titlee = document.getElementById("title");    
 
             let bookListHTML = "";
-            //  console.log(Books.title)
-            for (let i = 0; i < myLibrary.length; i++) {
-                bookListHTML += `<div>Book Name:${myLibrary[i][0].title} Author:${myLibrary[i][0].author} Library:${myLibrary[i][0].numberOfPages}   ID:${i+1} </div>`;
-            }
-            displayDiv.innerHTML = bookListHTML;
+            //  console.log(Books.title
+
+    for(let i = 0 ;  i < myLibrary.length; i++)
+    {
+if(myLibrary[i][0].author == undefined || myLibrary[i][0].title == undefined )
+{
+        bookListHTML += `<div>Book Name:${myLibrary[i][0]}  ID:${i+1} </div>`
+        displayDiv.innerHTML = bookListHTML;
+    }
+
+    else{
+        bookListHTML += `<div>Book Name:${myLibrary[i][0].title} Author:${myLibrary[i][0].author} Library:${myLibrary[i][0].numberOfPages}   ID:${i+1} </div>`;
+
+        displayDiv.innerHTML = bookListHTML;
+    }
+}
+           
+           // for (let i = 0; i < myLibrary.length; i++) {
+               
+         //   }
+         
 
           
           
@@ -92,6 +110,7 @@
             const displayX = document.getElementById("newbook_dialog");
            // newB.addEventListener("click", ()=>{
 displayX.showModal();
+//I love learning new things 
 
 
           //  })
@@ -109,11 +128,13 @@ displayX.showModal();
         
         function removeBook(index)
         {
+            
             for(let i =  0; i < myLibrary.length; i++)
             {
-                if(i === index)
+                if(i === myLibrary[index])
                 {
                     myLibrary.splice(i,1);
+                    displayDiv.innerHTML =``;
                 }
 
             }
@@ -150,7 +171,7 @@ displayX.showModal();
 
 
             event.preventDefault()
-          
+          //never be late trust me dude what the fuck is going on here what the fuck comeon don't be ever late nigger be  that fucked up shit man  what the fuck are you doing right know you are kidding me right know wan't me to die and kil myself? nah bruh wouldn't let that happen 
         } 
         
     </script>
