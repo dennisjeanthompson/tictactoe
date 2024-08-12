@@ -30,7 +30,8 @@
 <input id="title" type="text"/>
 <input id="numOfPages" type="text"/>  
 <button id="close" onclick="closeDialog()">Close</button>
-<button id="submit">Submit</button>
+<button id="submit" onclick="submitBook()">Submit</button>
+
 </dialog>
 <div id="dispayN"></div>
 <body>
@@ -39,9 +40,7 @@
         const newB =document.getElementById("newbook");
        
         const displayN = document.getElementById("displayN");
-        const numberOfPages =document.getElementById("numOfPages");
-        const author = document.getElementById("author");
-        const title = document.getElementById("title");
+       
       const displayDiv= document.getElementById("display-div");
         const myLibrary = [];
 
@@ -57,18 +56,29 @@
         function addBookToLibrary() {
           // do stuff here
           let NameOfBook = prompt("Enter number of books")
-          NameOfBook.trim();
+       //   NameOfBook.trim();
           if(NameOfBook === "") return;
-         myLibrary.push(NameOfBook);
+         myLibrary.push([NameOfBook]);
         }
         
         console.log(myLibrary);
+
         function displayBooks() {
+            let bookListHTML = "";
             for (let i = 0; i < myLibrary.length; i++) {
-                console.log(myLibrary[i]);
-                displayDiv.innerHTML += `<div>Book Name:${myLibrary[i]}   ID:${i+1} </div>`;
+                bookListHTML += `<div>Book Name:${myLibrary[i][0]}   ID:${i+1} </div>`;
             }
+            displayDiv.innerHTML = bookListHTML;
+
+          
+          
+
         }
+          //  for (let i = 0; i < myLibrary.length; i++) {
+               // console.log(myLibrary[i]);
+              //  displayDiv.innerHTML += `<div>Book Name:${myLibrary[i]}   ID:${i+1} </div>`;
+           // }
+  
         function newBook()
         {
             const displayX = document.getElementById("newbook_dialog");
@@ -88,13 +98,37 @@ displayX.showModal();
             
 
         }
+        
+        function removeBook()
+        {
+
+        }
         function submitBook()
         {
-            const displayX = document.getElementById("newbook_dialog");
+             const numberOfPages =document.getElementById("numOfPages");
+            const author = document.getElementById("author");
+            const title = document.getElementById("title");    const displayX = document.getElementById("newbook_dialog");
+            console.log(author);
+            const newBook1 =new Book(author.value,title.value,numberOfPages.value);
+     console.log("==============================")
+            console.log(newBook1);     
+            console.log("==============================")
+            myLibrary.push([newBook1])
+            console.log(myLibrary[0][1]);
+            //console.log(myLibrary[1][0]);
+
+
+
+
+
+
+
+
+
+
             event.preventDefault()
           
         } 
-
         
     </script>
 </body>
