@@ -53,9 +53,16 @@ async function playerMove(player) {
     while (true) {
         const move = await getInput(`Player ${player}, enter your move (1-9): `);
         const pos = parseInt(move) - 1;
-        const row = Math.floor(pos / 3);
-        const col = pos % 3;
-        console.log(col  + "value of column (col)");
+        console.log(pos +"value of pos") // if I enter 9 here it will minus 1  which result into 8
+        const row = Math.floor(pos / 3);// 8 / 3 = 2 value of row 
+        console.log(row + "value of row")
+        const col = pos % 3; // 8 modulo 3 = 2      
+        console.log(col + "value of col")
+        //hi ai guess what am I doing: say yes or no
+        
+        //
+
+        console.log(col  + "value of column (col) modulo");
         if (pos >= 0 && pos < 9 && board[row][col] === " ") {
             board[row][col] = player;
             break;
