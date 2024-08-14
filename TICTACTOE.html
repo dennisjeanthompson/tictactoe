@@ -98,6 +98,7 @@ background-color: rgb(68, 0, 0);
 
 
     <script>
+        let choosedNumber= 0;
         array = [[" "," "," "],[" "," "," "],[" "," "," "]]; //fucking hell
 const bt1 = document.querySelector(".bt1");
 const enter3= document.getElementById("enter");
@@ -320,58 +321,131 @@ return winnPattern.some(pattern =>pattern.every( ([r,c]) => array[r][c] === play
 function printBoard() {
     console.log(`
         [============]
-       :| ${board[0][0]} | ${board[0][1]} | ${board[0][2]} |:
+       :| ${array[0][0]} | ${array[0][1]} | ${array[0][2]} |:
         -------------
-       :| ${board[1][0]} | ${board[1][1]} | ${board[1][2]} |:
+       :| ${array[1][0]} | ${array[1][1]} | ${array[1][2]} |:
         ------------- 
-       :| ${board[2][0]} | ${board[2][1]} | ${board[2][2]} |:
+       :| ${array[2][0]} | ${array[2][1]} | ${array[2][2]} |:
        [=============]
     `);
 }
 
 
-function playGame()
-{
-    let currentPlayer ="X"
+  function playGame()
+{  let currentPlayer ="X"
+
+
+
     for(let i = 0; i <= 9 ; i++)
     {
+        playerMove(currentPlayer);
         if(winnerChecker(currentPlayer))
         {
-            console.log("You won player rhar I don't know of existing")
-            alert("you won I guess")
+            alert(`${currentPlayer} won`)
+           // console.log("You won player rhar I don't know of existing")
+            //alert("you won I guess")
+            return restart();
         }
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
 
     }
+    alert("It's a draw");
+    restart();
+}
 
 
 
+
+
+
+function  but1()
+{
+    choosedNumber = 1
+   // console.log(choosedNumber)
+    return playGame();;
 
 }
-playGame();
-/* OLD METHOD
-function winnerChecker()
+function  but2()
 {
-    if(array[0][0]==="X" && array[0][1]==="X"&&array[0][2]==="X")
-{ 
-    alert("YOU WON");
-
+    choosedNumber = 2
+    return playGame();;
 }
-}
-*/
-console.log(array[0][0]);
-
-
-
-async function playerMove(player)
-{
-while(true)
-{
+function  but3()
+{choosedNumber = 3
+    return playGame();;
     
+}
+function  but4()
+{
+    choosedNumber = 4
+    return playGame();r;
+}
+function  but5()
+{
+    choosedNumber = 5
+    return playGame();;
+}
+function  but6()
+{
+    choosedNumber = 6
+    return playGame();;
+}
+function  but7()
+{
+    choosedNumber = 7
+    return playGame();;
+}
+function  but8()
+{
+    choosedNumber = 8
+    return playGame();;
+}
+function  but9()
+{
+    choosedNumber = 9
+    return playGame();
+}
+ function playerMove(player)
+{
+//while(true)
+//{
+
+    console.log(choosedNumber);
+    const pos  = choosedNumber - 1; 
+    const row =Math.floor(pos / 3);
+    const col = pos % 3;
+    if(pos >= 0 && pos <= 9 &&array[row][col] === " " )
+{
+    array[row][col] = player;
+    printBoard();
+    return;
+}
+else{
+    alert("invalid movsse!")
+   
+}
     
+//}
+printBoard();
 }
+async function restart() {
+    array = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+    console.log("Board restarted. Do you want to continue playing? (Y/N)");
+    const askAgain =  prompt("Board restarted. Do you want to continue playing? (Y/N)");
+    let ping = askAgain.toLowerCase();
+    if (ping === "y") {
+        playGame();
+    } else {
+        console.log("Goodbye!");
+        //we are dead nananann nananan
+        //we are dead mananna naanana what the fucking hell living in this world come on
+        rl.close();
+    }
 }
-
-
+ //function but1 ()
+ //{
+    //console.log("niger")
+ //}
 
     </script>
    
