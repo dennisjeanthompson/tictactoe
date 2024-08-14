@@ -77,20 +77,20 @@ background-color: rgb(68, 0, 0);
 <div class="flat">
     <div class="abz"> 
     <div class="abz1">
-       <button class="bt1" onclick="but1()"><span id="enter" ></span></button>
-       <button class="bt2" onclick="but2()"><p id="ent1"></p>
+       <button class="bt1" onclick="but1()" id="bt1"><span id="enter" ></span></button>
+       <button class="bt2" onclick="but2()" id="bt2"><p id="ent1"></p>
        </button>
-       <button class="bt3" onclick="but3()"><p id="ent3"></button>
+       <button class="bt3" onclick="but3()" id="bt3"><p id="ent3"></button>
     </div>
     <div class="alz">
-        <button class="bt4" onclick="but4()"><p id="enter2"></p></button>
-        <button class="bt5" onclick="but5()"><p id="enter3"></p></button>
-        <button class="bt6" onclick="but6()"><p id="enter4"></p></button>
+        <button class="bt4" onclick="but4()" id="bt4"><p id="enter2"></p></button>
+        <button class="bt5" onclick="but5()" id="bt5"><p id="enter3"></p></button>
+        <button class="bt6" onclick="but6()" id="bt6"><p id="enter4"></p></button>
     </div>
     <div class="alz">
-        <button class="bt7" onclick="but7()"><p id="enter5"></p></button>
-        <button class="bt8" onclick="but8()"><p id="enter6"></p></button>
-        <button class="bt9" onclick="but9()"><p id="enter7"></p></button>
+        <button class="bt7" onclick="but7()" id="bt7"><p id="enter5"></p></button>
+        <button class="bt8" onclick="but8()" id="bt8"><p id="enter6"></p></button>
+        <button class="bt9" onclick="but9()" id="bt9"><p id="enter7"></p></button>
     </div>
 </div>
 </div>
@@ -336,7 +336,7 @@ function printBoard() {
 
 
 
-    for(let i = 0; i <= 9 ; i++)
+    for(let i = 0; i < 9 ; i++)
     {
         playerMove(currentPlayer);
         if(winnerChecker(currentPlayer))
@@ -358,57 +358,57 @@ function printBoard() {
 
 
 
-function  but1()
+ bt1.onclick = function()
 {
     choosedNumber = 1
    // console.log(choosedNumber)
-    return playGame();;
+    return playGame();
 
 }
-function  but2()
+bt2.onclick =function()
 {
     choosedNumber = 2
-    return playGame();;
+    return playGame();
 }
-function  but3()
+bt3.onclick =function()
 {choosedNumber = 3
-    return playGame();;
+    return playGame();
     
 }
-function  but4()
+bt4.onclick =function()
 {
     choosedNumber = 4
-    return playGame();r;
+    return playGame();
 }
-function  but5()
+bt5.onclick =function()
 {
     choosedNumber = 5
     return playGame();;
 }
-function  but6()
+bt6.onclick =function()
 {
     choosedNumber = 6
     return playGame();;
 }
-function  but7()
+bt7.onclick =function()
 {
     choosedNumber = 7
     return playGame();;
 }
-function  but8()
+bt8.onclick =function()
 {
     choosedNumber = 8
     return playGame();;
 }
-function  but9()
+bt9.onclick =function()
 {
     choosedNumber = 9
     return playGame();
 }
  function playerMove(player)
 {
-//while(true)
-//{
+while(true)
+{
 
     console.log(choosedNumber);
     const pos  = choosedNumber - 1; 
@@ -425,7 +425,7 @@ else{
    
 }
     
-//}
+}
 printBoard();
 }
 async function restart() {
@@ -437,8 +437,7 @@ async function restart() {
         playGame();
     } else {
         console.log("Goodbye!");
-        //we are dead nananann nananan
-        //we are dead mananna naanana what the fucking hell living in this world come on
+      
         rl.close();
     }
 }
