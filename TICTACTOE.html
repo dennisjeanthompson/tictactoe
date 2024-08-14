@@ -77,20 +77,20 @@ background-color: rgb(68, 0, 0);
 <div class="flat">
     <div class="abz"> 
     <div class="abz1">
-       <button class="bt1"><span id="enter" ></span></button>
-       <button class="bt2"><p id="ent1"></p>
+       <button class="bt1" onclick="but1()"><span id="enter" ></span></button>
+       <button class="bt2" onclick="but2()"><p id="ent1"></p>
        </button>
-       <button class="bt3"><p id="ent3"></button>
+       <button class="bt3" onclick="but3()"><p id="ent3"></button>
     </div>
     <div class="alz">
-        <button class="bt4"><p id="enter2"></p></button>
-        <button class="bt5"><p id="enter3"></p></button>
-        <button class="bt6"><p id="enter4"></p></button>
+        <button class="bt4" onclick="but4()"><p id="enter2"></p></button>
+        <button class="bt5" onclick="but5()"><p id="enter3"></p></button>
+        <button class="bt6" onclick="but6()"><p id="enter4"></p></button>
     </div>
     <div class="alz">
-        <button class="bt7"><p id="enter5"></p></button>
-        <button class="bt8"><p id="enter6"></p></button>
-        <button class="bt9"><p id="enter7"></p></button>
+        <button class="bt7" onclick="but7()"><p id="enter5"></p></button>
+        <button class="bt8" onclick="but8()"><p id="enter6"></p></button>
+        <button class="bt9" onclick="but9()"><p id="enter7"></p></button>
     </div>
 </div>
 </div>
@@ -316,6 +316,20 @@ return winnPattern.some(pattern =>pattern.every( ([r,c]) => array[r][c] === play
 
 
 }
+
+function printBoard() {
+    console.log(`
+        [============]
+       :| ${board[0][0]} | ${board[0][1]} | ${board[0][2]} |:
+        -------------
+       :| ${board[1][0]} | ${board[1][1]} | ${board[1][2]} |:
+        ------------- 
+       :| ${board[2][0]} | ${board[2][1]} | ${board[2][2]} |:
+       [=============]
+    `);
+}
+
+
 function playGame()
 {
     let currentPlayer ="X"
@@ -346,9 +360,21 @@ function winnerChecker()
 */
 console.log(array[0][0]);
 
-    </script>
-    <script src="TICJS.js">
+
+
+async function playerMove(player)
+{
+while(true)
+{
+    
+    
+}
+}
+
+
 
     </script>
+   
+    
 </body>
 </html>
