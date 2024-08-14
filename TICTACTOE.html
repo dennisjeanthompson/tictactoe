@@ -78,19 +78,19 @@ background-color: rgb(68, 0, 0);
     <div class="abz"> 
     <div class="abz1">
        <button class="bt1" onclick="but1()" id="bt1e"><span id="enter" ></span></button>
-       <button class="bt2" onclick="but2()" id="bt2"><p id="ent1"></p>
+       <button class="bt2" onclick="but2()" id="bt2e"><p id="ent1"></p>
        </button>
-       <button class="bt3" onclick="but3()" id="bt3"><p id="ent3"></button>
+       <button class="bt3" onclick="but3()" id="bt3e"><p id="ent3"></button>
     </div>
     <div class="alz">
-        <button class="bt4" onclick="but4()" id="bt4"><p id="enter2"></p></button>
-        <button class="bt5" onclick="but5()" id="bt5"><p id="enter3"></p></button>
-        <button class="bt6" onclick="but6()" id="bt6"><p id="enter4"></p></button>
+        <button class="bt4" onclick="but4()" id="bt4e"><p id="enter2"></p></button>
+        <button class="bt5" onclick="but5()" id="bt5e"><p id="enter3"></p></button>
+        <button class="bt6" onclick="but6()" id="bt6e"><p id="enter4"></p></button>
     </div>
     <div class="alz">
-        <button class="bt7" onclick="but7()" id="bt7"><p id="enter5"></p></button>
-        <button class="bt8" onclick="but8()" id="bt8"><p id="enter6"></p></button>
-        <button class="bt9" onclick="but9()" id="bt9"><p id="enter7"></p></button>
+        <button class="bt7" onclick="but7()" id="bt7e"><p id="enter5"></p></button>
+        <button class="bt8" onclick="but8()" id="bt8e"><p id="enter6"></p></button>
+        <button class="bt9" onclick="but9()" id="bt9e"><p id="enter7"></p></button>
     </div>
 </div>
 </div>
@@ -100,7 +100,7 @@ background-color: rgb(68, 0, 0);
     <script>
         let choosedNumber= 0;
         array = [[" "," "," "],[" "," "," "],[" "," "," "]]; //fucking hell
-        const bt1e = document.getElementById("bt1e");
+       
 const bt1 = document.querySelector(".bt1");
 const enter3= document.getElementById("enter");
 
@@ -137,6 +137,7 @@ bt1.addEventListener("click",()=>{
     enter3.style.borderRadius = "10px";
     enter3.style.boxShadow = "0px 0px 10px 5px rgba(0,0,0,0.5)";
     enter3.style.transition = "all 0.4s ease-in-out";
+    array[0][0] = " ";
     winnerChecker()
 })
 
@@ -154,6 +155,7 @@ bt2.addEventListener("click",()=>{
     enter1.style.borderRadius = "10px";
     enter1.style.boxShadow = "0px 0px 10px 5px rgba(0,0,0,0.5)";
     enter1.style.transition = "all 0.4s ease-in-out";
+    array[0][1] = " ";
     winnerChecker()
 })
 
@@ -175,6 +177,7 @@ bt3.addEventListener("click",function(){
    
     ent3z.style.zIndex = "1000";
     ent3z.style.position
+    array[0][2] = " ";
     winnerChecker()
 });
    
@@ -195,6 +198,7 @@ bt4.addEventListener("click",function(){
    
     enter4.style.zIndex = "1000";
     enter4.style.position
+    array[1][0] = " ";
     winnerChecker()
 });
    
@@ -215,6 +219,7 @@ bt5.addEventListener("click",function(){
    
    enter5.style.zIndex = "1000";
    enter5.style.position
+   array[1][1] = " ";
     winnerChecker()
 });
    
@@ -234,12 +239,13 @@ bt6.addEventListener("click",function(){
    
     enter6.style.zIndex = "1000";
     enter6.style.position
+    array[1][2] = " ";
     winnerChecker()
 });
    
 
 bt7.addEventListener("click",function(){
-    array[2][0] = "X";
+    array[2][1] = "X";
 
    enter7.innerHTML = "X";
    enter7.style.color = "blue";
@@ -255,6 +261,7 @@ bt7.addEventListener("click",function(){
    
    enter7.style.zIndex = "1000";
    enter7.style.position
+   array[2][1] = " "; 
     winnerChecker()
 });
    
@@ -276,6 +283,7 @@ bt8.addEventListener("click",function(){
    
     enter8.style.zIndex = "1000";
     enter8.style.position
+    array[2][1] = " ";
     winnerChecker()
 });
    
@@ -297,6 +305,7 @@ bt9.addEventListener("click",function(){
    
     enter9.style.zIndex = "1000";
     enter9.style.position
+    array[2][2] = " "
     winnerChecker()
 });
    
@@ -350,7 +359,7 @@ function printBoard() {
         currentPlayer = currentPlayer === "X" ? "O" : "X";
 
     }
-    alert("It's a draw");
+  //  alert("It's a draw");
     restart();
 }
 
@@ -359,80 +368,83 @@ function printBoard() {
 
 
 
- bt1e.onclick = function()
-{
+ document.getElementById("bt1e").addEventListener("click",function(){
     choosedNumber = 1
-   // console.log(choosedNumber)
-    return playGame();
+    // console.log(choosedNumber)
+     return playGame();
+ })
 
-}
-bt2.onclick =function()
-{
+ document.getElementById("bt2e").addEventListener("click",function(){
     choosedNumber = 2
-    return playGame();
-}
-bt3.onclick =function()
-{choosedNumber = 3
-    return playGame();
-    
-}
-bt4.onclick =function()
-{
+    // console.log(choosedNumber)
+     return playGame();
+ })
+ document.getElementById("bt3e").addEventListener("click",function(){
+    choosedNumber = 3
+    // console.log(choosedNumber)
+     return playGame();
+ })
+ document.getElementById("bt4e").addEventListener("click",function(){
     choosedNumber = 4
-    return playGame();
-}
-bt5.onclick =function()
-{
+    // console.log(choosedNumber)
+     return playGame();
+ })
+ document.getElementById("bt5e").addEventListener("click",function(){
     choosedNumber = 5
-    return playGame();;
-}
-bt6.onclick =function()
-{
+    // console.log(choosedNumber)
+     return playGame();
+ })
+ document.getElementById("bt6e").addEventListener("click",function(){
     choosedNumber = 6
-    return playGame();;
-}
-bt7.onclick =function()
-{
+    // console.log(choosedNumber)
+     return playGame();
+ })
+ document.getElementById("bt7e").addEventListener("click",function(){
     choosedNumber = 7
-    return playGame();;
-}
-bt8.onclick =function()
-{
+    // console.log(choosedNumber)
+     return playGame();
+ })
+ document.getElementById("bt8e").addEventListener("click",function(){
     choosedNumber = 8
-    return playGame();
-}
-bt9.onclick =function()
-{
+    // console.log(choosedNumber)
+     return playGame();
+ })
+ document.getElementById("bt9e").addEventListener("click",function(){
     choosedNumber = 9
-    return playGame();
-}
+    // console.log(choosedNumber)
+     return playGame();
+ })
  function playerMove(player)
 {
 //while(true)
 //{
+array[1][1] = "";
 
-    console.log(choosedNumber);
+    console.log(choosedNumber + "value of choosed  number ");
     const pos  = choosedNumber - 1; 
+    console.log(choosedNumber +" value of pos")
     const row =Math.floor(pos / 3);
+    console.log(row + " value of row")
     const col = pos % 3;
-    if(pos >= 0 && pos <= 9 &&array[row][col] === " " )
+    console.log(col + " value of col")
+    if(pos >= 0 && pos <= 9 &&array[row][col] ==  "" )
 {
-    array[row][col] = player;
+    array[row][col] = "x";
     printBoard();
     return;
 }
 else{
-    alert("invalid movsse!")
+ alert("invalid movsse!")
    return
 }
     
 }
 printBoard();
 //}
-async function restart() {
+function restart() {
     array = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
     console.log("Board restarted. Do you want to continue playing? (Y/N)");
-    const askAgain =  prompt("Board restarted. Do you want to continue playing? (Y/N)");
+    //const askAgain =  prompt("Board restarted. Do you want to continue playing? (Y/N)");
     let ping = askAgain.toLowerCase();
     if (ping === "y") {
         playGame();
