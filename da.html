@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button with ID and Class Actions</title>
+</head>
+<body>
+    <button id="pusy1" class="pusys">Press Me</button>
+
+    <script>
+        // Action for the button with id "pusy1"
+        document.getElementById('pusy1').addEventListener('click', function() {
+            alert('ID action triggered!');
+        });
+
+        // Action for any button with the class "pusys"
+   document.querySelectorAll('.pusys').forEach(button => {
+         button.addEventListener('click', function() {
+                console.log('Class action triggered!');
+         });
+      });
+      //it is posssibe to have different class names and id 
+    </script>
+</body>
+</html>

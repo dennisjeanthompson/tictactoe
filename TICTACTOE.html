@@ -77,7 +77,7 @@ background-color: rgb(68, 0, 0);
 <div class="flat">
     <div class="abz"> 
     <div class="abz1">
-       <button class="bt1" onclick="but1()" id="bt1"><span id="enter" ></span></button>
+       <button class="bt1" onclick="but1()" id="bt1e"><span id="enter" ></span></button>
        <button class="bt2" onclick="but2()" id="bt2"><p id="ent1"></p>
        </button>
        <button class="bt3" onclick="but3()" id="bt3"><p id="ent3"></button>
@@ -100,6 +100,7 @@ background-color: rgb(68, 0, 0);
     <script>
         let choosedNumber= 0;
         array = [[" "," "," "],[" "," "," "],[" "," "," "]]; //fucking hell
+        const bt1e = document.getElementById("bt1e");
 const bt1 = document.querySelector(".bt1");
 const enter3= document.getElementById("enter");
 
@@ -358,7 +359,7 @@ function printBoard() {
 
 
 
- bt1.onclick = function()
+ bt1e.onclick = function()
 {
     choosedNumber = 1
    // console.log(choosedNumber)
@@ -398,7 +399,7 @@ bt7.onclick =function()
 bt8.onclick =function()
 {
     choosedNumber = 8
-    return playGame();;
+    return playGame();
 }
 bt9.onclick =function()
 {
@@ -407,8 +408,8 @@ bt9.onclick =function()
 }
  function playerMove(player)
 {
-while(true)
-{
+//while(true)
+//{
 
     console.log(choosedNumber);
     const pos  = choosedNumber - 1; 
@@ -422,12 +423,12 @@ while(true)
 }
 else{
     alert("invalid movsse!")
-   
+   return
 }
     
 }
 printBoard();
-}
+//}
 async function restart() {
     array = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
     console.log("Board restarted. Do you want to continue playing? (Y/N)");

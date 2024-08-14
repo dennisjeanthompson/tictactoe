@@ -4,14 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* Add your CSS styles here */
+
+        .pusys{
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
     <button  id="pusy"> pressMeBitch</button>
 
-    <button id="pusy1">pressMe2</button>
+    <button id="pusy1" class="pusys"> pressMe2</button>
     <script>  
+        const  zinfg = document.getElementsByClassName('.pusys')
 const but2 = document.getElementById("pusy1")
         const but1 = document.getElementById("pusy")
+
+        zinfg.addEventListener("onclick",function(){
+            alert("deick")
+            prompt("dick sucker in the ass of the vagina of those who love to suck dick's")
+        })
 /*
         const askAgain =  prompt("Board restarted. Do you want to continue playing? (Y/N)")
        const corny = askAgain.toUpperCase();
