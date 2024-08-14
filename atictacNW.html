@@ -60,6 +60,7 @@
     </div>
     <script>
         let pinger = 0 ;
+        let counter = 0;
         const bt1 = document.getElementById("bt1")  
         const bt2 = document.getElementById("bt2")
         const bt3 = document.getElementById("bt3")
@@ -80,6 +81,19 @@
        }
        function checker()
        {
+if((array[0][0] == "X" && array[0][1]=="X" && array[0][2] == "X") ||(array[1][0] =="X"&& array[1][1] =="X" &&array[1][2]=="X") || (array[2][0] =="X" && array[2][1]=="X" && array[2][2]=="X")
+||(array[0][0]=="X" &&array[1][0]=="X"&&array[2][0]=="X") ||(array[0][1]=="X"&&array[1][1]=="X"&&array[2][1]=="X")||
+(array[0][2]=="X"&&array[1][2]=="X"&&array[2][2]=="X")||(array[0][0]=="X"&&array[1][1]=="X"&&array[2][2]=="X") || (array[2][0]=="X"&&array[1][1]=="X"&&array[0][2]=="X"))
+{
+    alert("yOU FUCKING WIN!!!")
+}
+if((array[0][0] == "O" && array[0][1]=="O" && array[0][2] == "O") ||(array[1][0] =="O"&& array[1][1] =="O" &&array[1][2]=="O") || (array[2][0] =="O" && array[2][1]=="O" && array[2][2]=="O")
+||(array[0][0]=="O" &&array[1][0]=="O"&&array[2][0]=="O") ||(array[0][1]=="O"&&array[1][1]=="O"&&array[2][1]=="O")||
+(array[0][2]=="O"&&array[1][2]=="O"&&array[2][2]=="O")||(array[0][0]=="O"&&array[1][1]=="O"&&array[2][2]=="O") || (array[2][0]=="O"&&array[1][1]=="O"&&array[0][2]=="O"))
+{
+    alert("yOU FUCKING WIN!!!")
+}
+        /*
         for(let i =0 ; i < array.length; i++)
         {
             for(let j = 0;  j < array.length; j++ )
@@ -90,18 +104,27 @@
             }
 
         }
-        
+        */
 
 
 
        }
-        
+        function restart()
+        {
+            array  =  [ [ [" "],[" "],[" "]],[[" "],[" "],[" "],[" "]],[ [" "],[" "],[" "]] ]
+            pinger = 0 ;
+
+        }
 document.getElementById("bt1").addEventListener("click",function(){
-    let bt1 = pinger++
+    counter++
+    let bt1e = pinger++
     //odd number
-   if ( array[0][0] == " ")
-   {
-    if(bt1 % 2 == 0 )
+    if (array[0][0] == "X" || array[0][0] == "O")
+    {
+   return alert("slot is occupied");
+    }
+   
+    if(bt1e % 2 != 0 )
     {
         bt1.innerHTML = "O";
         bt1.style.color = "blue";
@@ -117,8 +140,8 @@ document.getElementById("bt1").addEventListener("click",function(){
         
        bt1.style.zIndex = "1000";
        bt1.style.position
-       return array[0][0]= "O"
-
+        array[0][0]= "O"
+checker();
     }
     else{
         bt1.innerHTML = "X";
@@ -135,23 +158,22 @@ document.getElementById("bt1").addEventListener("click",function(){
         
        bt1.style.zIndex = "1000";
        bt1.style.position
-       return array[0][0]= "X"
+        array[0][0]= "X"
+        checker();
     }
    
-   }
- if (array[0][0] == "X" || array[0][0] == "O")
- {
-return alert("slot is occupied");
- }
+  
 
     
 })        
 document.getElementById("bt2").addEventListener("click",function(){
-    let bt2 = pinger++
+    let bt2e = pinger++
     //odd number
-   if ( array[0][1] == " ")
-   {
-    if(bt2 % 2 == 0 )
+    if (array[0][1] == "X" || array[0][1] == "O")
+    {
+   return alert("slot is occupied");
+    }
+    if(bt2e % 2 != 0 )
     {
         bt2.innerHTML = "O";
         bt2.style.color = "blue";
@@ -167,8 +189,8 @@ document.getElementById("bt2").addEventListener("click",function(){
         
        bt2.style.zIndex = "1000";
        bt2.style.position
-       return array[0][1]= "O"
-
+        array[0][1]= "O"
+        checker();
     }
     else{
         bt2.innerHTML = "X";
@@ -185,21 +207,21 @@ document.getElementById("bt2").addEventListener("click",function(){
         
        bt2.style.zIndex = "1000";
        bt2.style.position
-       return array[0][1]= "X"
+       array[0][1]= "X"
+       checker();
     }
    
-   }
- if (array[0][1] == "X" || array[0][1] == "O")
- {
-return alert("slot is occupied");
- }
+  
+
 })        
 document.getElementById("bt3").addEventListener("click",function(){
-    let bt3 = pinger++
+    let bt3e = pinger++
     //odd number
-   if ( array[0][0] == " ")
-   {
-    if(bt3 % 2 == 0 )
+    if (array[0][2] == "X" || array[0][2] == "O")
+    {
+   return alert("slot is occupied");
+    }
+    if(bt3e % 2 != 0 )
     {
         bt3.innerHTML = "O";
         bt3.style.color = "blue";
@@ -215,8 +237,8 @@ document.getElementById("bt3").addEventListener("click",function(){
         
        bt3.style.zIndex = "1000";
        bt3.style.position
-       return array[0][2]= "O"
-
+      array[0][2]= "O"
+      checker();
     }
     else{
         bt3.innerHTML = "X";
@@ -233,21 +255,22 @@ document.getElementById("bt3").addEventListener("click",function(){
         
        bt3.style.zIndex = "1000";
        bt3.style.position
-       return array[0][2]= "X"
+      array[0][2]= "X"
+      checker();
     }
    
-   }
- if (array[0][2] == "X" || array[0][2] == "O")
+   
+ 
+})        
+document.getElementById("bt4").addEventListener("click",function(){
+    let bt4e = pinger++
+    //odd number
+  
+ if (array[1][0] == "X" || array[1][0] == "O")
  {
 return alert("slot is occupied");
  }
-})        
-document.getElementById("bt4").addEventListener("click",function(){
-    let bt4 = pinger++
-    //odd number
-   if ( array[1][0] == " ")
-   {
-    if(bt4 % 2 == 0 )
+    if(bt4e % 2 != 0 )
     {
        bt4.innerHTML = "O";
        bt4.style.color = "blue";
@@ -263,8 +286,8 @@ document.getElementById("bt4").addEventListener("click",function(){
         
       bt4.style.zIndex = "1000";
       bt4.style.position
-       return array[1][0]= "O"
-
+      array[1][0]= "O"
+      checker();
     }
     else{
        bt4.innerHTML = "X";
@@ -281,21 +304,21 @@ document.getElementById("bt4").addEventListener("click",function(){
         
       bt4.style.zIndex = "1000";
       bt4.style.position
-       return array[1][0]= "X"
+        array[1][0]= "X"
+        checker();
     }
    
-   }
- if (array[1][0] == "X" || array[1][0] == "O")
+
+})        
+document.getElementById("bt5").addEventListener("click",function(){
+    let bt5e = pinger++
+    //odd number
+  
+ if (array[1][1] == "X" || array[1][1] == "O")
  {
 return alert("slot is occupied");
  }
-})        
-document.getElementById("bt5").addEventListener("click",function(){
-    let bt5 = pinger++
-    //odd number
-   if ( array[1][1] == " ")
-   {
-    if(bt5 % 2 == 0 )
+    if(bt5e % 2 != 0 )
     {
        bt5.innerHTML = "O";
        bt5.style.color = "blue";
@@ -311,8 +334,8 @@ document.getElementById("bt5").addEventListener("click",function(){
         
       bt5.style.zIndex = "1000";
       bt5.style.position
-       return array[1][1]= "O"
-
+       array[1][1]= "O"
+       checker();
     }
     else{
        bt5.innerHTML = "X";
@@ -329,21 +352,21 @@ document.getElementById("bt5").addEventListener("click",function(){
         
       bt5.style.zIndex = "1000";
       bt5.style.position
-       return array[1][1]= "X"
+      array[1][1]= "X"
+      checker();
     }
    
-   }
- if (array[1][1] == "X" || array[1][1] == "O")
+ 
+})        
+document.getElementById("bt6").addEventListener("click",function(){
+    let bt6e = pinger++
+    //odd number
+   
+ if (array[1][2] == "X" || array[1][2] == "O")
  {
 return alert("slot is occupied");
  }
-})        
-document.getElementById("bt6").addEventListener("click",function(){
-    let bt6 = pinger++
-    //odd number
-   if ( array[1][2] == " ")
-   {
-    if(bt6 % 2 == 0 )
+    if(bt6e % 2 != 0 )
     {
        bt6.innerHTML = "O";
        bt6.style.color = "blue";
@@ -359,8 +382,8 @@ document.getElementById("bt6").addEventListener("click",function(){
         
       bt6.style.zIndex = "1000";
       bt6.style.position
-       return array[1][2]= "O"
-
+       array[1][2]= "O"
+       checker();
     }
     else{
        bt6.innerHTML = "X";
@@ -377,21 +400,21 @@ document.getElementById("bt6").addEventListener("click",function(){
         
       bt6.style.zIndex = "1000";
       bt6.style.position
-       return array[1][2]= "X"
+       array[1][2]= "X"
+       checker();
     }
    
-   }
- if (array[0][0] == "X" || array[0][0] == "O")
+
+})        
+document.getElementById("bt7").addEventListener("click",function(){
+    let bt7e = pinger++
+    //odd number
+    
+ if (array[2][0] == "X" || array[2][0] == "O")
  {
 return alert("slot is occupied");
  }
-})        
-document.getElementById("bt7").addEventListener("click",function(){
-    let bt7 = pinger++
-    //odd number
-   if ( array[2][0] == " ")
-   {
-    if(bt7 % 2 == 0 )
+    if(bt7e % 2 != 0 )
     {
        bt7.innerHTML = "O";
        bt7.style.color = "blue";
@@ -407,8 +430,8 @@ document.getElementById("bt7").addEventListener("click",function(){
         
       bt7.style.zIndex = "1000";
       bt7.style.position
-       return array[2][0]= "O"
-
+        array[2][0]= "O"
+        checker();
     }
     else{
        bt7.innerHTML = "X";
@@ -425,21 +448,21 @@ document.getElementById("bt7").addEventListener("click",function(){
         
       bt7.style.zIndex = "1000";
       bt7.style.position
-       return array[2][0]= "X"
+        array[2][0]= "X"
+        checker();
     }
    
-   }
- if (array[2][0] == "X" || array[2][0] == "O")
+ 
+})        
+document.getElementById("bt8").addEventListener("click",function(){
+    let bt8e = pinger++
+    //odd number
+    
+ if (array[2][1] == "X" || array[2][1] == "O")
  {
 return alert("slot is occupied");
  }
-})        
-document.getElementById("bt8").addEventListener("click",function(){
-    let bt8 = pinger++
-    //odd number
-   if ( array[2][1] == " ")
-   {
-    if(bt8 % 2 == 0 )
+    if(bt8e % 2 !=  0 )
     {
         bt8.innerHTML = "O";
        bt8.style.color = "blue";
@@ -455,8 +478,8 @@ document.getElementById("bt8").addEventListener("click",function(){
         
       bt8.style.zIndex = "1000";
       bt8.style.position
-       return array[2][1]= "O"
-
+    array[2][1]= "O"
+    checker();
     }
     else{
        bt8.innerHTML = "X";
@@ -473,21 +496,21 @@ document.getElementById("bt8").addEventListener("click",function(){
         
       bt8.style.zIndex = "1000";
       bt8.style.position
-       return array[2][1]= "X"
+        array[2][1]= "X"
+        checker();
     }
    
-   }
- if (array[2][1] == "X" || array[2][1] == "O")
- {
-return alert("slot is occupied");
- }
+ 
 })        
 document.getElementById("bt9").addEventListener("click",function(){
-    let bt9 = pinger++
+    let bt9e = pinger++
     //odd number
-   if ( array[2][2] == " ")
-   {
-    if(bt9 % 2 == 0 )
+ 
+    if (array[2][2] == "X" || array[2][2] == "O")
+    {
+   return alert("slot is occupied");
+    }
+    if(bt9e % 2 != 0 )
     {
        bt9.innerHTML = "O";
        bt9.style.color = "blue";
@@ -503,8 +526,8 @@ document.getElementById("bt9").addEventListener("click",function(){
         
       bt9.style.zIndex = "1000";
       bt9.style.position
-       return array[2][2]= "O"
-
+      array[2][2]= "O"
+      checker();
     }
     else{
        bt9.innerHTML = "X";
@@ -521,14 +544,11 @@ document.getElementById("bt9").addEventListener("click",function(){
         
       bt9.style.zIndex = "1000";
       bt9.style.position
-       return array[2][2]= "X"
+        array[2][2]= "X"
+        checker();
     }
    
-   }
- if (array[2][2] == "X" || array[2][2] == "O")
- {
-return alert("slot is occupied");
- }
+ 
 })        
     </script>
 </body>
