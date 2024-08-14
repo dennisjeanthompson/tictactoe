@@ -59,13 +59,23 @@
        
     </div>
     <script>
-       
+        let pinger = 0 ;
+        const bt1 = document.getElementById("bt1")  
+        const bt2 = document.getElementById("bt2")
+        const bt3 = document.getElementById("bt3")
+        const bt4 = document.getElementById("bt4")
+        const bt5 = document.getElementById("bt5")
+        const bt6 = document.getElementById("bt6")
+        const bt7 = document.getElementById("bt7")
+        const bt8 = document.getElementById("bt8")
+        const bt9 = document.getElementById("bt9")
+        array  =  [ [ [" "],[" "],[" "]],[[" "],[" "],[" "],[" "]],[ [" "],[" "],[" "]] ]
+        
        // console.log(array[2][2]) // sue
        function startGame()
        {
 
-        array  =  [ [ [" "],[" "],[" "]],[[" "],[" "],[" "],[" "]],[ [" "],[" "],[" "]] ]
-        
+      
 
        }
        function checker()
@@ -87,30 +97,85 @@
        }
         
 document.getElementById("bt1").addEventListener("click",function(){
-    alert("you pressed number 1");
+    let bt1 = pinger++
+    //odd number
+   if ( array[0][0] == " ")
+   {
+    if(bt1 % 2 == 0 )
+    {
+        bt1.innerHTML = "O";
+        bt1.style.color = "blue";
+        bt1.style.fontSize = "30px";
+        bt1.style.fontWeight = "bold";
+        bt1.style.textTransform = "uppercase";
+        bt1.style.textAlign = "center";
+       bt1.style.backgroundColor = "yellow";
+       bt1.style.padding = "10px";
+       bt1.style.borderRadius = "10px";
+       bt1.style.boxShadow = "0px 0px 10px 5px rgba(0,0,0,0.5)";
+       bt1.style.transition = "all 0.4s ease-in-out";
+        
+       bt1.style.zIndex = "1000";
+       bt1.style.position
+       return array[0][0]= "O"
+
+    }
+    else{
+        bt1.innerHTML = "X";
+        bt1.style.color = "blue";
+        bt1.style.fontSize = "30px";
+        bt1.style.fontWeight = "bold";
+        bt1.style.textTransform = "uppercase";
+        bt1.style.textAlign = "center";
+       bt1.style.backgroundColor = "yellow";
+       bt1.style.padding = "10px";
+       bt1.style.borderRadius = "10px";
+       bt1.style.boxShadow = "0px 0px 10px 5px rgba(0,0,0,0.5)";
+       bt1.style.transition = "all 0.4s ease-in-out";
+        
+       bt1.style.zIndex = "1000";
+       bt1.style.position
+       return array[0][0]= "X"
+    }
+   
+   }
+ if (array[0][0] == "X")
+ {
+return alert("slot is occupied");
+ }
+
+    
 })        
 document.getElementById("bt2").addEventListener("click",function(){
+    array[0][1]
     alert("you pressed number 2");
 })        
 document.getElementById("bt3").addEventListener("click",function(){
+    array[0][2]
     alert("you pressed number 3");
 })        
 document.getElementById("bt4").addEventListener("click",function(){
+    array[1][0]
     alert("you pressed number 4");
 })        
 document.getElementById("bt5").addEventListener("click",function(){
+    array[1][1]
     alert("you pressed number 5");
 })        
 document.getElementById("bt6").addEventListener("click",function(){
+    array[1][2]
     alert("you pressed number 6");
 })        
 document.getElementById("bt7").addEventListener("click",function(){
+    array[2][0]
     alert("you pressed number 7");
 })        
 document.getElementById("bt8").addEventListener("click",function(){
+    array[2][1]
     alert("you pressed number 8");
 })        
 document.getElementById("bt9").addEventListener("click",function(){
+    array[2][2]
     alert("you pressed number 9");
 })        
     </script>
