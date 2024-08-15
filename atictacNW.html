@@ -21,6 +21,7 @@
     
     background-color: green;
 }
+
     </style>
 </head>
 <body>
@@ -56,11 +57,24 @@
 
         </div>
     
-       
+       <button id="restart"> restart</button>
     </div>
     <script>
+        let jamming = true;
+      let orig = 0 ;
         let pinger = 0 ;
         let counter = 0;
+        let  btn1 = true;
+        let  btn2 = true;
+        let  btn3 = true;
+        let  btn4 = true;
+        let  btn5 = true;
+        let  btn6 = true;
+        let  btn7 = true;
+        let  btn8 = true;
+        let  btn9 = true;
+        let checkWin = true;
+        let checkWin2 = true;      
         const bt1 = document.getElementById("bt1")  
         const bt2 = document.getElementById("bt2")
         const bt3 = document.getElementById("bt3")
@@ -84,13 +98,16 @@
 if((array[0][0] == "X" && array[0][1]=="X" && array[0][2] == "X") ||(array[1][0] =="X"&& array[1][1] =="X" &&array[1][2]=="X") || (array[2][0] =="X" && array[2][1]=="X" && array[2][2]=="X")
 ||(array[0][0]=="X" &&array[1][0]=="X"&&array[2][0]=="X") ||(array[0][1]=="X"&&array[1][1]=="X"&&array[2][1]=="X")||
 (array[0][2]=="X"&&array[1][2]=="X"&&array[2][2]=="X")||(array[0][0]=="X"&&array[1][1]=="X"&&array[2][2]=="X") || (array[2][0]=="X"&&array[1][1]=="X"&&array[0][2]=="X"))
-{
+{ 
+    checkWin = false;
     alert("yOU FUCKING WIN!!!")
+   
 }
 if((array[0][0] == "O" && array[0][1]=="O" && array[0][2] == "O") ||(array[1][0] =="O"&& array[1][1] =="O" &&array[1][2]=="O") || (array[2][0] =="O" && array[2][1]=="O" && array[2][2]=="O")
 ||(array[0][0]=="O" &&array[1][0]=="O"&&array[2][0]=="O") ||(array[0][1]=="O"&&array[1][1]=="O"&&array[2][1]=="O")||
 (array[0][2]=="O"&&array[1][2]=="O"&&array[2][2]=="O")||(array[0][0]=="O"&&array[1][1]=="O"&&array[2][2]=="O") || (array[2][0]=="O"&&array[1][1]=="O"&&array[0][2]=="O"))
 {
+    checkWin2 =false
     alert("yOU FUCKING WIN!!!")
 }
         /*
@@ -109,23 +126,100 @@ if((array[0][0] == "O" && array[0][1]=="O" && array[0][2] == "O") ||(array[1][0]
 
 
        }
+       function checkDraw()
+       {
+        if(orig >= 9  )
+        {
+          
+          jamming = false;
+orig = 0 ;
+return   alert("Drow!")
+        }
+
+       }
+      
         function restart()
         {
-            array  =  [ [ [" "],[" "],[" "]],[[" "],[" "],[" "],[" "]],[ [" "],[" "],[" "]] ]
-            pinger = 0 ;
+            if( checkWin == false || checkWin2 == false || jamming == false)
+            {alert("restart")
+            jamming = true;
+                bt1.innerHTML =" ";
+               bt2.innerHTML =" ";
+                bt3.innerHTML =" ";
+                bt4.innerHTML =" ";
+                bt5.innerHTML =" ";
+                bt6.innerHTML =" ";
+                bt7.innerHTML =" ";
+                bt8.innerHTML =" ";
+                bt9.innerHTML =" ";
+            //  orig = 0 ;
+       pinger = 0 ;
+         counter = 0;
+                /*                bt1.removeAttribute("style");
+                bt2.removeAttribute("style");
+                bt3.removeAttribute("style");
+                bt4.removeAttribute("style");
+                bt5.removeAttribute("style");
+                bt6.removeAttribute("style");
+                bt7.removeAttribute("style");
+                bt8.removeAttribute("style");
+                bt9.removeAttribute("style");
+                */
+              
+                bt1.style.color = "black";
+                bt1.style.fontSize = "30px";
+                bt1.style.fontWeight = "bold";
+                bt1.style.textTransform = "uppercase";
+               bt1.style.textAlign = "center";
+                bt1.style.backgroundColor = "white";
+                bt1.style.padding = "10px";
+                bt1.style.borderRadius = "10px";
+                bt1.style.boxShadow = "0px 0px 10px 5px rgba(0,0,0,0.5)";
+            
+                btn1 = true;
+                 btn2 = true;
+                  btn3 = true;
+               btn4 = true;
+                 btn5 = true;
+                  btn6 = true;
+                 btn7 = true;
+                btn8 = true;
+                 btn9 = true;
+            
+               
+                array  =  [ [ [" "],[" "],[" "]],[[" "],[" "],[" "],[" "]],[ [" "],[" "],[" "]] ]
+                pinger = 0 ;
+                checkWin = true;
+            }
+           
 
         }
 document.getElementById("bt1").addEventListener("click",function(){
-    counter++
-    let bt1e = pinger++
+ 
+     counter++
+      //  let bt1e = pinger++
+    //decriment by one what the fuck number is
+
+    //what would we decriment by one here
+    //what do we need to decr
+    // then  it would incriment 
+
+
+
+  
+   
+  
+    
     //odd number
     if (array[0][0] == "X" || array[0][0] == "O")
     {
    return alert("slot is occupied");
     }
    
-    if(bt1e % 2 != 0 )
+    if(pinger % 2 != 0 && btn1  == true )
     {
+         orig++;
+        pinger++;
         bt1.innerHTML = "O";
         bt1.style.color = "blue";
         bt1.style.fontSize = "30px";
@@ -141,9 +235,15 @@ document.getElementById("bt1").addEventListener("click",function(){
        bt1.style.zIndex = "1000";
        bt1.style.position
         array[0][0]= "O"
+        btn1 = false;
+       
 checker();
+checkDraw()
+restart();
     }
-    else{
+    else if (pinger % 2 == 0 && btn1 == true){
+        pinger++;
+        orig++;
         bt1.innerHTML = "X";
         bt1.style.color = "blue";
         bt1.style.fontSize = "30px";
@@ -159,7 +259,11 @@ checker();
        bt1.style.zIndex = "1000";
        bt1.style.position
         array[0][0]= "X"
+        btn1 = false;
+       
         checker();
+        checkDraw()
+        restart();
     }
    
   
@@ -167,14 +271,17 @@ checker();
     
 })        
 document.getElementById("bt2").addEventListener("click",function(){
-    let bt2e = pinger++
+    counter++
+    orig++;
+   // let bt2e = pinger++
     //odd number
     if (array[0][1] == "X" || array[0][1] == "O")
     {
    return alert("slot is occupied");
     }
-    if(bt2e % 2 != 0 )
+    if(pinger % 2 != 0 && btn2 == true)
     {
+        pinger++;
         bt2.innerHTML = "O";
         bt2.style.color = "blue";
         bt2.style.fontSize = "30px";
@@ -190,9 +297,15 @@ document.getElementById("bt2").addEventListener("click",function(){
        bt2.style.zIndex = "1000";
        bt2.style.position
         array[0][1]= "O"
+        btn2 =false
+       
         checker();
+        checkDraw()
+        restart();
     }
-    else{
+    else if(pinger % 2 == 0 && btn2 == true){
+        pinger++;
+        orig++;
         bt2.innerHTML = "X";
         bt2.style.color = "blue";
         bt2.style.fontSize = "30px";
@@ -208,21 +321,28 @@ document.getElementById("bt2").addEventListener("click",function(){
        bt2.style.zIndex = "1000";
        bt2.style.position
        array[0][1]= "X"
+       btn2= false;
+       
        checker();
+       checkDraw()
+       restart();
     }
    
   
 
 })        
 document.getElementById("bt3").addEventListener("click",function(){
-    let bt3e = pinger++
+    counter++
+   
     //odd number
     if (array[0][2] == "X" || array[0][2] == "O")
     {
    return alert("slot is occupied");
     }
-    if(bt3e % 2 != 0 )
+    if(pinger % 2 != 0 && btn3 == true)
     {
+        pinger++;
+        orig++;
         bt3.innerHTML = "O";
         bt3.style.color = "blue";
         bt3.style.fontSize = "30px";
@@ -238,9 +358,15 @@ document.getElementById("bt3").addEventListener("click",function(){
        bt3.style.zIndex = "1000";
        bt3.style.position
       array[0][2]= "O"
+      btn3 = false;
+      
       checker();
+      checkDraw()
+      restart();
     }
-    else{
+    else if(pinger % 2 == 0 && btn3 == true){
+        pinger++;
+        orig++;
         bt3.innerHTML = "X";
         bt3.style.color = "blue";
         bt3.style.fontSize = "30px";
@@ -256,22 +382,29 @@ document.getElementById("bt3").addEventListener("click",function(){
        bt3.style.zIndex = "1000";
        bt3.style.position
       array[0][2]= "X"
+      btn3= false;
+     
       checker();
+      checkDraw()
+      restart();
     }
    
    
  
 })        
 document.getElementById("bt4").addEventListener("click",function(){
-    let bt4e = pinger++
+    counter++
+  
     //odd number
   
  if (array[1][0] == "X" || array[1][0] == "O")
  {
 return alert("slot is occupied");
  }
-    if(bt4e % 2 != 0 )
+    if(pinger % 2 != 0 && btn4 == true)
     {
+        pinger++;
+        orig++;
        bt4.innerHTML = "O";
        bt4.style.color = "blue";
        bt4.style.fontSize = "30px";
@@ -287,9 +420,15 @@ return alert("slot is occupied");
       bt4.style.zIndex = "1000";
       bt4.style.position
       array[1][0]= "O"
+      btn4 = false;
+      
       checker();
+      checkDraw()
+      restart();
     }
-    else{
+    else if(pinger % 2 == 0 && btn4 == true){
+        pinger++;
+        orig++;
        bt4.innerHTML = "X";
        bt4.style.color = "blue";
        bt4.style.fontSize = "30px";
@@ -305,21 +444,30 @@ return alert("slot is occupied");
       bt4.style.zIndex = "1000";
       bt4.style.position
         array[1][0]= "X"
+        btn4= false;
+       
         checker();
+        checkDraw()
+        restart();
     }
+   
    
 
 })        
 document.getElementById("bt5").addEventListener("click",function(){
-    let bt5e = pinger++
+    counter++
+   
     //odd number
   
  if (array[1][1] == "X" || array[1][1] == "O")
  {
 return alert("slot is occupied");
  }
-    if(bt5e % 2 != 0 )
+    if(pinger  % 2 != 0 && btn5 == true )
     {
+
+        pinger++
+        orig++;
        bt5.innerHTML = "O";
        bt5.style.color = "blue";
        bt5.style.fontSize = "30px";
@@ -335,9 +483,15 @@ return alert("slot is occupied");
       bt5.style.zIndex = "1000";
       bt5.style.position
        array[1][1]= "O"
+       btn5 = false;
+       
        checker();
+       checkDraw()
+       restart();
     }
-    else{
+    else if(pinger % 2 == 0 && btn5 == true){
+        pinger++;
+        orig++;
        bt5.innerHTML = "X";
        bt5.style.color = "blue";
        bt5.style.fontSize = "30px";
@@ -353,21 +507,28 @@ return alert("slot is occupied");
       bt5.style.zIndex = "1000";
       bt5.style.position
       array[1][1]= "X"
+      btn5 =false;
+     
       checker();
+      checkDraw()
+      restart();
     }
    
  
 })        
 document.getElementById("bt6").addEventListener("click",function(){
-    let bt6e = pinger++
+    counter++
+   
     //odd number
    
  if (array[1][2] == "X" || array[1][2] == "O")
  {
 return alert("slot is occupied");
  }
-    if(bt6e % 2 != 0 )
+    if(pinger % 2 != 0 && btn6 == true )
     {
+        pinger++;
+        orig++;
        bt6.innerHTML = "O";
        bt6.style.color = "blue";
        bt6.style.fontSize = "30px";
@@ -383,9 +544,15 @@ return alert("slot is occupied");
       bt6.style.zIndex = "1000";
       bt6.style.position
        array[1][2]= "O"
+       btn6 =false;
+       
        checker();
+       checkDraw()
+       restart();
     }
-    else{
+    else if(pinger % 2 == 0 && btn6 == true){
+        pinger++;
+        orig++;
        bt6.innerHTML = "X";
        bt6.style.color = "blue";
        bt6.style.fontSize = "30px";
@@ -401,21 +568,28 @@ return alert("slot is occupied");
       bt6.style.zIndex = "1000";
       bt6.style.position
        array[1][2]= "X"
+       btn6 =false;
+      
        checker();
+       checkDraw()
+       restart();
     }
    
 
 })        
 document.getElementById("bt7").addEventListener("click",function(){
-    let bt7e = pinger++
+    counter++
+  
     //odd number
     
  if (array[2][0] == "X" || array[2][0] == "O")
  {
 return alert("slot is occupied");
  }
-    if(bt7e % 2 != 0 )
+    if(pinger % 2 != 0 && btn7 == true )
     {
+        pinger++;
+        orig++;
        bt7.innerHTML = "O";
        bt7.style.color = "blue";
        bt7.style.fontSize = "30px";
@@ -431,9 +605,15 @@ return alert("slot is occupied");
       bt7.style.zIndex = "1000";
       bt7.style.position
         array[2][0]= "O"
+        btn7 =false;
+       
         checker();
+        checkDraw()
+        restart();
     }
-    else{
+    else if(pinger  % 2 == 0 && btn7 == true ){
+        pinger++;
+        orig++;
        bt7.innerHTML = "X";
        bt7.style.color = "blue";
        bt7.style.fontSize = "30px";
@@ -449,20 +629,25 @@ return alert("slot is occupied");
       bt7.style.zIndex = "1000";
       bt7.style.position
         array[2][0]= "X"
+        btn7 = false;
+
         checker();
+        checkDraw()
+        restart();
     }
    
  
 })        
 document.getElementById("bt8").addEventListener("click",function(){
-    let bt8e = pinger++
+    counter++
+  
     //odd number
     
  if (array[2][1] == "X" || array[2][1] == "O")
  {
 return alert("slot is occupied");
  }
-    if(bt8e % 2 !=  0 )
+    if(pinger % 2 !=  0 &&  btn8 == true )
     {
         bt8.innerHTML = "O";
        bt8.style.color = "blue";
@@ -479,9 +664,14 @@ return alert("slot is occupied");
       bt8.style.zIndex = "1000";
       bt8.style.position
     array[2][1]= "O"
+   
     checker();
+    checkDraw()
+    restart();
     }
-    else{
+    else if(pinger  % 2 ==  0  &&  btn8 == true ){
+        pinger++
+        orig++;
        bt8.innerHTML = "X";
        bt8.style.color = "blue";
        bt8.style.fontSize = "30px";
@@ -497,21 +687,27 @@ return alert("slot is occupied");
       bt8.style.zIndex = "1000";
       bt8.style.position
         array[2][1]= "X"
+        btn8 = false
+       
         checker();
+        checkDraw()
+        restart();
     }
    
  
 })        
 document.getElementById("bt9").addEventListener("click",function(){
-    let bt9e = pinger++
+    counter++
+    
     //odd number
  
     if (array[2][2] == "X" || array[2][2] == "O")
     {
    return alert("slot is occupied");
     }
-    if(bt9e % 2 != 0 )
-    {
+    if(pinger % 2 != 0 && btn9 == true )
+    { orig++;
+        pinger++
        bt9.innerHTML = "O";
        bt9.style.color = "blue";
        bt9.style.fontSize = "30px";
@@ -527,9 +723,15 @@ document.getElementById("bt9").addEventListener("click",function(){
       bt9.style.zIndex = "1000";
       bt9.style.position
       array[2][2]= "O"
+      btn9 = false
+      
       checker();
+      checkDraw()
+      restart();
     }
-    else{
+    else if(pinger % 2 == 0 && btn9 == true){
+        pinger++;
+        orig++;
        bt9.innerHTML = "X";
        bt9.style.color = "blue";
        bt9.style.fontSize = "30px";
@@ -545,7 +747,11 @@ document.getElementById("bt9").addEventListener("click",function(){
       bt9.style.zIndex = "1000";
       bt9.style.position
         array[2][2]= "X"
+        btn9 = false;
+       
         checker();
+        checkDraw()
+        restart();
     }
    
  
